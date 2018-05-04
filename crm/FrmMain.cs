@@ -13,5 +13,13 @@ namespace crm {
         public FrmMain() {
             InitializeComponent();
         }
+
+        private void btnPost_Click(object sender, EventArgs e) {
+           
+        }
+
+        private void label11_Click(object sender, EventArgs e) {
+            //describe the list
+        }
     }
 }
