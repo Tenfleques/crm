@@ -31,9 +31,9 @@
             // 
             this.progressBarLoading.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.progressBarLoading.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.progressBarLoading.Location = new System.Drawing.Point(0, 300);
+            this.progressBarLoading.Location = new System.Drawing.Point(0, 280);
             this.progressBarLoading.Name = "progressBarLoading";
-            this.progressBarLoading.Size = new System.Drawing.Size(580, 10);
+            this.progressBarLoading.Size = new System.Drawing.Size(570, 10);
             this.progressBarLoading.TabIndex = 0;
             // 
             // FrmSplash

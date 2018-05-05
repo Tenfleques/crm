@@ -65,7 +65,7 @@
             // lblLoginError
             // 
             this.lblLoginError.AutoSize = true;
-            this.lblLoginError.Location = new System.Drawing.Point(69, 67);
+            this.lblLoginError.Location = new System.Drawing.Point(70, 65);
             this.lblLoginError.Name = "lblLoginError";
             this.lblLoginError.Size = new System.Drawing.Size(0, 13);
             this.lblLoginError.TabIndex = 3;
@@ -74,25 +74,25 @@
             // 
             this.txtEmail.Location = new System.Drawing.Point(90, 90);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(181, 20);
+            this.txtEmail.Size = new System.Drawing.Size(180, 20);
             this.txtEmail.TabIndex = 4;
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(90, 172);
+            this.btnLogin.Location = new System.Drawing.Point(90, 175);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(182, 24);
+            this.btnLogin.Size = new System.Drawing.Size(180, 25);
             this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "Войти";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // lnkGoToRegistration
             // 
             this.lnkGoToRegistration.AutoSize = true;
-            this.lnkGoToRegistration.Location = new System.Drawing.Point(88, 211);
+            this.lnkGoToRegistration.Location = new System.Drawing.Point(90, 210);
             this.lnkGoToRegistration.Name = "lnkGoToRegistration";
-            this.lnkGoToRegistration.Size = new System.Drawing.Size(153, 13);
+            this.lnkGoToRegistration.Size = new System.Drawing.Size(155, 13);
             this.lnkGoToRegistration.TabIndex = 7;
             this.lnkGoToRegistration.TabStop = true;
             this.lnkGoToRegistration.Text = "нет счета? Зарегистртруйте.";
@@ -103,15 +103,13 @@
             this.txtPassword.Location = new System.Drawing.Point(90, 130);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(181, 20);
+            this.txtPassword.Size = new System.Drawing.Size(180, 20);
             this.txtPassword.TabIndex = 5;
             // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(320, 300);
             this.ControlBox = false;
             this.Controls.Add(this.lnkGoToRegistration);
             this.Controls.Add(this.btnLogin);
@@ -124,9 +122,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(320, 300);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(320, 300);
+            this.MinimumSize = new System.Drawing.Size(320, 320);
             this.Name = "FrmLogin";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
