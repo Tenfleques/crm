@@ -69,7 +69,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppState.cs" />
     <Compile Include="FrmDBsetup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,14 +104,8 @@
     <EmbeddedResource Include="FrmDBsetup.resx">
       <DependentUpon>FrmDBsetup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain.resx">
-      <DependentUpon>FrmMain.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistration.resx">
       <DependentUpon>FrmRegistration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSplash.resx">
       <DependentUpon>FrmSplash.cs</DependentUpon>
