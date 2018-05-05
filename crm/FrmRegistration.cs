@@ -18,6 +18,7 @@ namespace crm {
             gotologin = false;
             authenticated = false;
             errorMessage = "Необходимо запольнить все поля!";
+            this.lblErrorText.ForeColor = System.Drawing.Color.Red;
         }
         private bool validateInput() {
             if (this.txtCompany.TextLength == 0 ||
@@ -27,9 +28,16 @@ namespace crm {
                 return false;
             }
             if(this.txtPassword.Text != this.txtRepeatPassword.Text) {
-                errorMessage = "Пароли не совпадают!";
+                errorMessage = "Пароли не совпадают!" + this.txtPassword.Text +" - " + this.txtRepeatPassword;
                 return false;
             }
+
+            Properties.Settings.Default["userCompany"] = this.txtCompany.Text;
+            Properties.Settings.Default["adminEmail"] = this.txtEmail.Text;
+            Properties.Settings.Default["adminPassword"] = this.txtPassword.Text;
+            authenticated = true;
+
+            Properties.Settings.Default.Save();
             return true;
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
@@ -40,11 +48,10 @@ namespace crm {
             return gotologin;
         }
         private void btnRegister_Click(object sender, EventArgs e) {
-            if (validateInput()) {
-                this.lblErrorText.ForeColor = System.Drawing.Color.Red;
+            if (!validateInput()) {
                 this.lblErrorText.Text = errorMessage;
             } else { 
-                //register company and initial user
+                //go to register company and initial user
                 authenticated = true;
                 Close();
             }

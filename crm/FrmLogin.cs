@@ -16,9 +16,19 @@ namespace crm {
             InitializeComponent();
             authenticated = false;
             register = false;
+            this.lblLoginError.ForeColor = System.Drawing.Color.Red;
         }
         public bool isAuthenticated() {
-            return authenticated;
+
+            if(this.txtEmail.TextLength == 0 ||
+                 this.txtPassword.TextLength == 0)
+                this.lblLoginError.Text = "Необходимо запольнить все поля!";
+            /*if() //dblogin
+             *  authenticated = true;
+             *else
+             *   this.lblLoginError.Text = "Эл. почта/ пароль не неверный";
+             */
+            return authenticated;            
         }
         public bool goToRegister() {
             return register;
@@ -26,9 +36,6 @@ namespace crm {
         private void btnLogin_Click(object sender, EventArgs e) {
             if (isAuthenticated()) {
                 Close();
-            } else {
-                this.lblLoginError.ForeColor = System.Drawing.Color.Red;
-                this.lblLoginError.Text = "Эл. почта/ пароль не неверный";
             }            
         }
 

@@ -125,6 +125,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(224, 20);
             this.txtPassword.TabIndex = 10;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtRepeatPassword
             // 
@@ -133,6 +134,7 @@
             this.txtRepeatPassword.PasswordChar = '*';
             this.txtRepeatPassword.Size = new System.Drawing.Size(224, 20);
             this.txtRepeatPassword.TabIndex = 11;
+            this.txtRepeatPassword.UseSystemPasswordChar = true;
             // 
             // lblErrorText
             // 
