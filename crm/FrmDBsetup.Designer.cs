@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDBsetup));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -33,10 +34,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lblErrorMessage = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblAdmin = new System.Windows.Forms.Label();
             this.lblCompany = new System.Windows.Forms.Label();
+            this.lblAdmin = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,14 +130,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Регистрирован";
             // 
-            // label5
+            // lblCompany
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 29);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Компания:";
+            this.lblCompany.AutoSize = true;
+            this.lblCompany.Location = new System.Drawing.Point(127, 28);
+            this.lblCompany.Name = "lblCompany";
+            this.lblCompany.Size = new System.Drawing.Size(0, 13);
+            this.lblCompany.TabIndex = 3;
+            // 
+            // lblAdmin
+            // 
+            this.lblAdmin.AutoSize = true;
+            this.lblAdmin.Location = new System.Drawing.Point(127, 68);
+            this.lblAdmin.Name = "lblAdmin";
+            this.lblAdmin.Size = new System.Drawing.Size(0, 13);
+            this.lblAdmin.TabIndex = 2;
             // 
             // label6
             // 
@@ -147,27 +155,20 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Адмирнистратор:";
             // 
-            // lblAdmin
+            // label5
             // 
-            this.lblAdmin.AutoSize = true;
-            this.lblAdmin.Location = new System.Drawing.Point(127, 68);
-            this.lblAdmin.Name = "lblAdmin";
-            this.lblAdmin.Size = new System.Drawing.Size(0, 13);
-            this.lblAdmin.TabIndex = 2;
-            // 
-            // lblCompany
-            // 
-            this.lblCompany.AutoSize = true;
-            this.lblCompany.Location = new System.Drawing.Point(127, 28);
-            this.lblCompany.Name = "lblCompany";
-            this.lblCompany.Size = new System.Drawing.Size(0, 13);
-            this.lblCompany.TabIndex = 3;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Компания:";
             // 
             // FrmDBsetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 407);
+            this.ClientSize = new System.Drawing.Size(485, 410);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblErrorMessage);
             this.Controls.Add(this.button1);
@@ -179,7 +180,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDBsetup";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmDBsetup";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

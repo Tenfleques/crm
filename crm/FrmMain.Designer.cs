@@ -49,6 +49,17 @@
             this.txtSearchEmployee = new System.Windows.Forms.TextBox();
             this.listWorkers = new System.Windows.Forms.ListView();
             this.tabCustomerService = new System.Windows.Forms.TabPage();
+            this.groupBoxAddClient = new System.Windows.Forms.GroupBox();
+            this.comboBoxCustomerRating = new System.Windows.Forms.ComboBox();
+            this.lblSaveCustomerError = new System.Windows.Forms.Label();
+            this.btnSaveClient = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBoxClientSupport = new System.Windows.Forms.GroupBox();
             this.groupBoxCurrentMessage = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -56,6 +67,9 @@
             this.txtComment = new System.Windows.Forms.TextBox();
             this.tabMarketing = new System.Windows.Forms.TabPage();
             this.groupBoxCreateCampaign = new System.Windows.Forms.GroupBox();
+            this.btnSaveCampaign = new System.Windows.Forms.Button();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.txtCampaignName = new System.Windows.Forms.TextBox();
             this.lblTargetClients = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -69,20 +83,6 @@
             this.groupBoxClientGroups = new System.Windows.Forms.GroupBox();
             this.tabBusinessReporting = new System.Windows.Forms.TabPage();
             this.tabAnalytics = new System.Windows.Forms.TabPage();
-            this.txtCampaignName = new System.Windows.Forms.TextBox();
-            this.txtDescription = new System.Windows.Forms.TextBox();
-            this.btnSaveCampaign = new System.Windows.Forms.Button();
-            this.groupBoxAddClient = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.btnSaveClient = new System.Windows.Forms.Button();
-            this.lblSaveCustomerError = new System.Windows.Forms.Label();
-            this.comboBoxCustomerRating = new System.Windows.Forms.ComboBox();
             this.tabsMain.SuspendLayout();
             this.tabSalesForce.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -90,11 +90,11 @@
             this.groupBoxAssignResponsibilty.SuspendLayout();
             this.groupBoxAddWorker.SuspendLayout();
             this.tabCustomerService.SuspendLayout();
+            this.groupBoxAddClient.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabMarketing.SuspendLayout();
             this.groupBoxCreateCampaign.SuspendLayout();
             this.groupBoxCreateGroup.SuspendLayout();
-            this.groupBoxAddClient.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabsMain
@@ -379,6 +379,133 @@
             this.tabCustomerService.TabIndex = 2;
             this.tabCustomerService.Text = "Обслуживание клиентов";
             // 
+            // groupBoxAddClient
+            // 
+            this.groupBoxAddClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxAddClient.Controls.Add(this.comboBoxCustomerRating);
+            this.groupBoxAddClient.Controls.Add(this.lblSaveCustomerError);
+            this.groupBoxAddClient.Controls.Add(this.btnSaveClient);
+            this.groupBoxAddClient.Controls.Add(this.textBox3);
+            this.groupBoxAddClient.Controls.Add(this.textBox2);
+            this.groupBoxAddClient.Controls.Add(this.textBox1);
+            this.groupBoxAddClient.Controls.Add(this.label14);
+            this.groupBoxAddClient.Controls.Add(this.label13);
+            this.groupBoxAddClient.Controls.Add(this.label12);
+            this.groupBoxAddClient.Controls.Add(this.label11);
+            this.groupBoxAddClient.Location = new System.Drawing.Point(5, 5);
+            this.groupBoxAddClient.Name = "groupBoxAddClient";
+            this.groupBoxAddClient.Size = new System.Drawing.Size(420, 225);
+            this.groupBoxAddClient.TabIndex = 3;
+            this.groupBoxAddClient.TabStop = false;
+            this.groupBoxAddClient.Text = "Добавьте Клиента";
+            // 
+            // comboBoxCustomerRating
+            // 
+            this.comboBoxCustomerRating.FormattingEnabled = true;
+            this.comboBoxCustomerRating.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.comboBoxCustomerRating.Location = new System.Drawing.Point(105, 145);
+            this.comboBoxCustomerRating.Name = "comboBoxCustomerRating";
+            this.comboBoxCustomerRating.Size = new System.Drawing.Size(309, 21);
+            this.comboBoxCustomerRating.TabIndex = 10;
+            // 
+            // lblSaveCustomerError
+            // 
+            this.lblSaveCustomerError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSaveCustomerError.AutoSize = true;
+            this.lblSaveCustomerError.Location = new System.Drawing.Point(105, 25);
+            this.lblSaveCustomerError.Name = "lblSaveCustomerError";
+            this.lblSaveCustomerError.Size = new System.Drawing.Size(0, 13);
+            this.lblSaveCustomerError.TabIndex = 9;
+            // 
+            // btnSaveClient
+            // 
+            this.btnSaveClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveClient.Location = new System.Drawing.Point(105, 180);
+            this.btnSaveClient.Name = "btnSaveClient";
+            this.btnSaveClient.Size = new System.Drawing.Size(309, 23);
+            this.btnSaveClient.TabIndex = 8;
+            this.btnSaveClient.Text = "Сохранить";
+            this.btnSaveClient.UseVisualStyleBackColor = true;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox3.Location = new System.Drawing.Point(105, 114);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(310, 20);
+            this.textBox3.TabIndex = 6;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Location = new System.Drawing.Point(105, 82);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(310, 20);
+            this.textBox2.TabIndex = 5;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(105, 50);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(310, 20);
+            this.textBox1.TabIndex = 4;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(5, 145);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(48, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Рейтинг";
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(5, 115);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(56, 13);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Эл. Почта";
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(5, 85);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(52, 13);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Телефон";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(5, 55);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(84, 13);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Имя/Название";
+            // 
             // groupBoxClientSupport
             // 
             this.groupBoxClientSupport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -465,6 +592,36 @@
             this.groupBoxCreateCampaign.TabIndex = 2;
             this.groupBoxCreateCampaign.TabStop = false;
             this.groupBoxCreateCampaign.Text = "Создать маркетинговую кампанию";
+            // 
+            // btnSaveCampaign
+            // 
+            this.btnSaveCampaign.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveCampaign.Location = new System.Drawing.Point(94, 232);
+            this.btnSaveCampaign.Name = "btnSaveCampaign";
+            this.btnSaveCampaign.Size = new System.Drawing.Size(215, 23);
+            this.btnSaveCampaign.TabIndex = 6;
+            this.btnSaveCampaign.Text = "Сохранить";
+            this.btnSaveCampaign.UseVisualStyleBackColor = true;
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescription.Location = new System.Drawing.Point(95, 90);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(215, 135);
+            this.txtDescription.TabIndex = 5;
+            // 
+            // txtCampaignName
+            // 
+            this.txtCampaignName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCampaignName.Location = new System.Drawing.Point(95, 50);
+            this.txtCampaignName.Name = "txtCampaignName";
+            this.txtCampaignName.Size = new System.Drawing.Size(215, 20);
+            this.txtCampaignName.TabIndex = 4;
             // 
             // lblTargetClients
             // 
@@ -602,163 +759,6 @@
             this.tabAnalytics.TabIndex = 5;
             this.tabAnalytics.Text = "Аналитика";
             // 
-            // txtCampaignName
-            // 
-            this.txtCampaignName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCampaignName.Location = new System.Drawing.Point(95, 50);
-            this.txtCampaignName.Name = "txtCampaignName";
-            this.txtCampaignName.Size = new System.Drawing.Size(215, 20);
-            this.txtCampaignName.TabIndex = 4;
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescription.Location = new System.Drawing.Point(95, 90);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(215, 135);
-            this.txtDescription.TabIndex = 5;
-            // 
-            // btnSaveCampaign
-            // 
-            this.btnSaveCampaign.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveCampaign.Location = new System.Drawing.Point(94, 232);
-            this.btnSaveCampaign.Name = "btnSaveCampaign";
-            this.btnSaveCampaign.Size = new System.Drawing.Size(215, 23);
-            this.btnSaveCampaign.TabIndex = 6;
-            this.btnSaveCampaign.Text = "Сохранить";
-            this.btnSaveCampaign.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxAddClient
-            // 
-            this.groupBoxAddClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxAddClient.Controls.Add(this.comboBoxCustomerRating);
-            this.groupBoxAddClient.Controls.Add(this.lblSaveCustomerError);
-            this.groupBoxAddClient.Controls.Add(this.btnSaveClient);
-            this.groupBoxAddClient.Controls.Add(this.textBox3);
-            this.groupBoxAddClient.Controls.Add(this.textBox2);
-            this.groupBoxAddClient.Controls.Add(this.textBox1);
-            this.groupBoxAddClient.Controls.Add(this.label14);
-            this.groupBoxAddClient.Controls.Add(this.label13);
-            this.groupBoxAddClient.Controls.Add(this.label12);
-            this.groupBoxAddClient.Controls.Add(this.label11);
-            this.groupBoxAddClient.Location = new System.Drawing.Point(5, 5);
-            this.groupBoxAddClient.Name = "groupBoxAddClient";
-            this.groupBoxAddClient.Size = new System.Drawing.Size(420, 225);
-            this.groupBoxAddClient.TabIndex = 3;
-            this.groupBoxAddClient.TabStop = false;
-            this.groupBoxAddClient.Text = "Добавьте Клиента";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 55);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(84, 13);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Имя/Название";
-            // 
-            // label12
-            // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(5, 85);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(52, 13);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Телефон";
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(5, 115);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(56, 13);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "Эл. Почта";
-            // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(5, 145);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(48, 13);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "Рейтинг";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(105, 50);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(310, 20);
-            this.textBox1.TabIndex = 4;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(105, 82);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(310, 20);
-            this.textBox2.TabIndex = 5;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(105, 114);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(310, 20);
-            this.textBox3.TabIndex = 6;
-            // 
-            // btnSaveClient
-            // 
-            this.btnSaveClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveClient.Location = new System.Drawing.Point(105, 180);
-            this.btnSaveClient.Name = "btnSaveClient";
-            this.btnSaveClient.Size = new System.Drawing.Size(309, 23);
-            this.btnSaveClient.TabIndex = 8;
-            this.btnSaveClient.Text = "Сохранить";
-            this.btnSaveClient.UseVisualStyleBackColor = true;
-            // 
-            // lblSaveCustomerError
-            // 
-            this.lblSaveCustomerError.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblSaveCustomerError.AutoSize = true;
-            this.lblSaveCustomerError.Location = new System.Drawing.Point(105, 25);
-            this.lblSaveCustomerError.Name = "lblSaveCustomerError";
-            this.lblSaveCustomerError.Size = new System.Drawing.Size(0, 13);
-            this.lblSaveCustomerError.TabIndex = 9;
-            // 
-            // comboBoxCustomerRating
-            // 
-            this.comboBoxCustomerRating.FormattingEnabled = true;
-            this.comboBoxCustomerRating.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.comboBoxCustomerRating.Location = new System.Drawing.Point(105, 145);
-            this.comboBoxCustomerRating.Name = "comboBoxCustomerRating";
-            this.comboBoxCustomerRating.Size = new System.Drawing.Size(309, 21);
-            this.comboBoxCustomerRating.TabIndex = 10;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -780,6 +780,8 @@
             this.groupBoxAddWorker.ResumeLayout(false);
             this.groupBoxAddWorker.PerformLayout();
             this.tabCustomerService.ResumeLayout(false);
+            this.groupBoxAddClient.ResumeLayout(false);
+            this.groupBoxAddClient.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabMarketing.ResumeLayout(false);
@@ -787,8 +789,6 @@
             this.groupBoxCreateCampaign.PerformLayout();
             this.groupBoxCreateGroup.ResumeLayout(false);
             this.groupBoxCreateGroup.PerformLayout();
-            this.groupBoxAddClient.ResumeLayout(false);
-            this.groupBoxAddClient.PerformLayout();
             this.ResumeLayout(false);
 
         }

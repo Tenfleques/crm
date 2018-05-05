@@ -23,7 +23,8 @@ namespace crm {
         private bool validateInput() {
             if (this.txtCompany.TextLength == 0 ||
                 this.txtEmail.TextLength == 0 ||
-                this.txtPassword.TextLength == 0) {
+                this.txtPassword.TextLength == 0 ||
+                this.txtRepeatPassword.TextLength == 0) {
                 errorMessage = "Необходимо запольнить все поля!";
                 return false;
             }
@@ -32,9 +33,9 @@ namespace crm {
                 return false;
             }
 
-            Properties.Settings.Default["userCompany"] = this.txtCompany.Text;
-            Properties.Settings.Default["adminEmail"] = this.txtEmail.Text;
-            Properties.Settings.Default["adminPassword"] = this.txtPassword.Text;
+            /*this.txtCompany.Text;
+            this.txtEmail.Text;
+            this.txtPassword.Text;*/
             authenticated = true;
 
             Properties.Settings.Default.Save();

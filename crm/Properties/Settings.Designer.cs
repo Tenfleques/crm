@@ -22,41 +22,5 @@ namespace crm.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string userCompany {
-            get {
-                return ((string)(this["userCompany"]));
-            }
-            set {
-                this["userCompany"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string adminEmail {
-            get {
-                return ((string)(this["adminEmail"]));
-            }
-            set {
-                this["adminEmail"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string adminPassword {
-            get {
-                return ((string)(this["adminPassword"]));
-            }
-            set {
-                this["adminPassword"] = value;
-            }
-        }
     }
 }

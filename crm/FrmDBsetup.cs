@@ -14,16 +14,15 @@ namespace crm {
         public FrmDBsetup() {
             InitializeComponent();
             this.lblErrorMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblCompany.Text = Properties.Settings.Default.userCompany;
-            this.lblAdmin.Text = Properties.Settings.Default.adminEmail;
         }
         private bool saveDBSettings() {
             if (this.txtHost.TextLength == 0 ||
                 this.txtUsername.TextLength == 0 ||
-                this.txtUsername.TextLength == 0) {
+                this.txtPassword.TextLength == 0) {
                 this.lblErrorMessage.Text = "Необходимо запольнить все поля!";
                 return false;
             }
+            this.lblErrorMessage.Text = "";
             /*if() successful connect and setup
              * Properties.Settings.Default["SomeProperty"] = "Some Value";
              *   Properties.Settings.Default.Save();
