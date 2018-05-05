@@ -765,7 +765,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 511);
             this.Controls.Add(this.tabsMain);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            
             this.MinimumSize = new System.Drawing.Size(600, 350);
             this.Name = "FrmMain";
             this.Text = "СРМ";
