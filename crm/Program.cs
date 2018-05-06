@@ -29,13 +29,13 @@ namespace crm {
                 Application.Run(mainForm);
             }
             if (loginForm.goToRegister()) {
-                Application.Run(regForm);
+				Application.Run(dbsetupForm);
                 if (regForm.goToLogin()) {
                     Application.Restart();
                 }
-                if (regForm.isAuthenticated()) {
-                    Application.Run(dbsetupForm);
-                    if(dbsetupForm.isSet())
+				if (dbsetupForm.isSet()) {
+					Application.Run(regForm);
+					if(regForm.isAuthenticated())
                         Application.Run(mainForm);
                 }
             }

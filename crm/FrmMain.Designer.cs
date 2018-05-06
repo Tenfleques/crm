@@ -511,9 +511,9 @@
             this.groupBoxClientSupport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxClientSupport.Location = new System.Drawing.Point(5, 234);
+            this.groupBoxClientSupport.Location = new System.Drawing.Point(5, 235);
             this.groupBoxClientSupport.Name = "groupBoxClientSupport";
-            this.groupBoxClientSupport.Size = new System.Drawing.Size(420, 196);
+            this.groupBoxClientSupport.Size = new System.Drawing.Size(420, 195);
             this.groupBoxClientSupport.TabIndex = 2;
             this.groupBoxClientSupport.TabStop = false;
             this.groupBoxClientSupport.Text = "Лента обслуживания клинтов";
@@ -522,9 +522,9 @@
             // 
             this.groupBoxCurrentMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxCurrentMessage.Location = new System.Drawing.Point(434, 7);
+            this.groupBoxCurrentMessage.Location = new System.Drawing.Point(435, 5);
             this.groupBoxCurrentMessage.Name = "groupBoxCurrentMessage";
-            this.groupBoxCurrentMessage.Size = new System.Drawing.Size(332, 294);
+            this.groupBoxCurrentMessage.Size = new System.Drawing.Size(330, 295);
             this.groupBoxCurrentMessage.TabIndex = 1;
             this.groupBoxCurrentMessage.TabStop = false;
             this.groupBoxCurrentMessage.Text = "Активный чат";
@@ -534,9 +534,9 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.btnSendMsg);
             this.groupBox2.Controls.Add(this.txtComment);
-            this.groupBox2.Location = new System.Drawing.Point(434, 307);
+            this.groupBox2.Location = new System.Drawing.Point(435, 305);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(332, 129);
+            this.groupBox2.Size = new System.Drawing.Size(330, 130);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Сообщение с клиентами";
@@ -547,7 +547,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSendMsg.Location = new System.Drawing.Point(5, 100);
             this.btnSendMsg.Name = "btnSendMsg";
-            this.btnSendMsg.Size = new System.Drawing.Size(320, 23);
+            this.btnSendMsg.Size = new System.Drawing.Size(320, 25);
             this.btnSendMsg.TabIndex = 1;
             this.btnSendMsg.Text = "Отправьте";
             this.btnSendMsg.UseVisualStyleBackColor = true;
@@ -559,7 +559,7 @@
             this.txtComment.Location = new System.Drawing.Point(5, 20);
             this.txtComment.Multiline = true;
             this.txtComment.Name = "txtComment";
-            this.txtComment.Size = new System.Drawing.Size(320, 77);
+            this.txtComment.Size = new System.Drawing.Size(320, 75);
             this.txtComment.TabIndex = 0;
             // 
             // tabMarketing

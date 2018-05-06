@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace crm {
     public partial class FrmDBsetup : Form {
@@ -35,6 +37,8 @@ namespace crm {
         }
 
         private void button1_Click(object sender, EventArgs e) {
+			allSet = true;
+			this.Close();
             if (this.saveDBSettings()) {
                 this.Close();
             }
