@@ -20,7 +20,8 @@ namespace crm {
             FrmSplash splashForm = new FrmSplash();
             FrmDBsetup dbsetupForm = new FrmDBsetup();
 
-            Application.Run(splashForm);
+            Application.Run(mainForm);
+            /*Application.Run(splashForm);
 
             if(splashForm.isAppLoaded())
                 Application.Run(loginForm);
@@ -38,7 +39,7 @@ namespace crm {
 					if(regForm.isAuthenticated())
                         Application.Run(mainForm);
                 }
-            }
+            }*/
         }
     }
 }
