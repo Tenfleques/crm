@@ -69,10 +69,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="crmDataSet.Designer.cs">
+    <Compile Include="AdventureWorks2016DataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>crmDataSet.xsd</DependentUpon>
+      <DependentUpon>AdventureWorks2016DataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="FrmDBsetup.cs">
       <SubType>Form</SubType>
@@ -124,16 +124,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="crmDataSet.xsc">
-      <DependentUpon>crmDataSet.xsd</DependentUpon>
+    <None Include="AdventureWorks2016DataSet2.xsc">
+      <DependentUpon>AdventureWorks2016DataSet2.xsd</DependentUpon>
     </None>
-    <None Include="crmDataSet.xsd">
+    <None Include="AdventureWorks2016DataSet2.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>crmDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>AdventureWorks2016DataSet2.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="crmDataSet.xss">
-      <DependentUpon>crmDataSet.xsd</DependentUpon>
+    <None Include="AdventureWorks2016DataSet2.xss">
+      <DependentUpon>AdventureWorks2016DataSet2.xsd</DependentUpon>
     </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
