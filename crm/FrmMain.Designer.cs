@@ -33,12 +33,6 @@
             this.btnPost = new System.Windows.Forms.Button();
             this.txtPost = new System.Windows.Forms.TextBox();
             this.tabHumanResource = new System.Windows.Forms.TabPage();
-            this.groupBoxAssignResponsibilty = new System.Windows.Forms.GroupBox();
-            this.btnSaveAssignments = new System.Windows.Forms.Button();
-            this.listBoxTasks = new System.Windows.Forms.ListBox();
-            this.comboBoxWorker = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBoxAddWorker = new System.Windows.Forms.GroupBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -82,11 +76,16 @@
             this.groupBoxClientGroups = new System.Windows.Forms.GroupBox();
             this.tabBusinessReporting = new System.Windows.Forms.TabPage();
             this.tabAnalytics = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBoxWorker = new System.Windows.Forms.ComboBox();
+            this.listBoxTasks = new System.Windows.Forms.ListBox();
+            this.btnSaveAssignments = new System.Windows.Forms.Button();
+            this.groupBoxAssignResponsibilty = new System.Windows.Forms.GroupBox();
             this.tabsMain.SuspendLayout();
             this.tabSalesForce.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabHumanResource.SuspendLayout();
-            this.groupBoxAssignResponsibilty.SuspendLayout();
             this.groupBoxAddWorker.SuspendLayout();
             this.tabCustomerService.SuspendLayout();
             this.groupBoxAddClient.SuspendLayout();
@@ -94,6 +93,7 @@
             this.tabMarketing.SuspendLayout();
             this.groupBoxCreateCampaign.SuspendLayout();
             this.groupBoxCreateGroup.SuspendLayout();
+            this.groupBoxAssignResponsibilty.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabsMain
@@ -216,72 +216,6 @@
             this.tabHumanResource.Size = new System.Drawing.Size(772, 442);
             this.tabHumanResource.TabIndex = 1;
             this.tabHumanResource.Text = "Управление персоналом";
-            // 
-            // groupBoxAssignResponsibilty
-            // 
-            this.groupBoxAssignResponsibilty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxAssignResponsibilty.Controls.Add(this.btnSaveAssignments);
-            this.groupBoxAssignResponsibilty.Controls.Add(this.listBoxTasks);
-            this.groupBoxAssignResponsibilty.Controls.Add(this.comboBoxWorker);
-            this.groupBoxAssignResponsibilty.Controls.Add(this.label4);
-            this.groupBoxAssignResponsibilty.Controls.Add(this.label3);
-            this.groupBoxAssignResponsibilty.Location = new System.Drawing.Point(7, 217);
-            this.groupBoxAssignResponsibilty.Name = "groupBoxAssignResponsibilty";
-            this.groupBoxAssignResponsibilty.Size = new System.Drawing.Size(427, 213);
-            this.groupBoxAssignResponsibilty.TabIndex = 9;
-            this.groupBoxAssignResponsibilty.TabStop = false;
-            this.groupBoxAssignResponsibilty.Text = "Назначить задачу";
-            // 
-            // btnSaveAssignments
-            // 
-            this.btnSaveAssignments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveAssignments.Location = new System.Drawing.Point(74, 184);
-            this.btnSaveAssignments.Name = "btnSaveAssignments";
-            this.btnSaveAssignments.Size = new System.Drawing.Size(335, 23);
-            this.btnSaveAssignments.TabIndex = 4;
-            this.btnSaveAssignments.Text = "Сохранить";
-            this.btnSaveAssignments.UseVisualStyleBackColor = true;
-            // 
-            // listBoxTasks
-            // 
-            this.listBoxTasks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxTasks.FormattingEnabled = true;
-            this.listBoxTasks.Location = new System.Drawing.Point(74, 77);
-            this.listBoxTasks.Name = "listBoxTasks";
-            this.listBoxTasks.Size = new System.Drawing.Size(335, 95);
-            this.listBoxTasks.TabIndex = 3;
-            // 
-            // comboBoxWorker
-            // 
-            this.comboBoxWorker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxWorker.FormattingEnabled = true;
-            this.comboBoxWorker.Location = new System.Drawing.Point(74, 39);
-            this.comboBoxWorker.Name = "comboBoxWorker";
-            this.comboBoxWorker.Size = new System.Drawing.Size(335, 21);
-            this.comboBoxWorker.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 77);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Задачи";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Сотрудник";
             // 
             // groupBoxAddWorker
             // 
@@ -758,6 +692,72 @@
             this.tabAnalytics.TabIndex = 5;
             this.tabAnalytics.Text = "Аналитика";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 39);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Сотрудник";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Задачи";
+            // 
+            // comboBoxWorker
+            // 
+            this.comboBoxWorker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxWorker.FormattingEnabled = true;
+            this.comboBoxWorker.Location = new System.Drawing.Point(74, 39);
+            this.comboBoxWorker.Name = "comboBoxWorker";
+            this.comboBoxWorker.Size = new System.Drawing.Size(335, 21);
+            this.comboBoxWorker.TabIndex = 2;
+            // 
+            // listBoxTasks
+            // 
+            this.listBoxTasks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxTasks.FormattingEnabled = true;
+            this.listBoxTasks.Location = new System.Drawing.Point(74, 77);
+            this.listBoxTasks.Name = "listBoxTasks";
+            this.listBoxTasks.Size = new System.Drawing.Size(335, 95);
+            this.listBoxTasks.TabIndex = 3;
+            // 
+            // btnSaveAssignments
+            // 
+            this.btnSaveAssignments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveAssignments.Location = new System.Drawing.Point(74, 184);
+            this.btnSaveAssignments.Name = "btnSaveAssignments";
+            this.btnSaveAssignments.Size = new System.Drawing.Size(335, 23);
+            this.btnSaveAssignments.TabIndex = 4;
+            this.btnSaveAssignments.Text = "Сохранить";
+            this.btnSaveAssignments.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxAssignResponsibilty
+            // 
+            this.groupBoxAssignResponsibilty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxAssignResponsibilty.Controls.Add(this.btnSaveAssignments);
+            this.groupBoxAssignResponsibilty.Controls.Add(this.listBoxTasks);
+            this.groupBoxAssignResponsibilty.Controls.Add(this.comboBoxWorker);
+            this.groupBoxAssignResponsibilty.Controls.Add(this.label4);
+            this.groupBoxAssignResponsibilty.Controls.Add(this.label3);
+            this.groupBoxAssignResponsibilty.Location = new System.Drawing.Point(7, 217);
+            this.groupBoxAssignResponsibilty.Name = "groupBoxAssignResponsibilty";
+            this.groupBoxAssignResponsibilty.Size = new System.Drawing.Size(427, 213);
+            this.groupBoxAssignResponsibilty.TabIndex = 9;
+            this.groupBoxAssignResponsibilty.TabStop = false;
+            this.groupBoxAssignResponsibilty.Text = "Назначить задачу";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -773,8 +773,6 @@
             this.groupBox1.PerformLayout();
             this.tabHumanResource.ResumeLayout(false);
             this.tabHumanResource.PerformLayout();
-            this.groupBoxAssignResponsibilty.ResumeLayout(false);
-            this.groupBoxAssignResponsibilty.PerformLayout();
             this.groupBoxAddWorker.ResumeLayout(false);
             this.groupBoxAddWorker.PerformLayout();
             this.tabCustomerService.ResumeLayout(false);
@@ -787,6 +785,8 @@
             this.groupBoxCreateCampaign.PerformLayout();
             this.groupBoxCreateGroup.ResumeLayout(false);
             this.groupBoxCreateGroup.PerformLayout();
+            this.groupBoxAssignResponsibilty.ResumeLayout(false);
+            this.groupBoxAssignResponsibilty.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -800,12 +800,6 @@
         private System.Windows.Forms.TabPage tabBusinessReporting;
         private System.Windows.Forms.TabPage tabAnalytics;
         private System.Windows.Forms.TabPage tabHumanResource;
-        private System.Windows.Forms.GroupBox groupBoxAssignResponsibilty;
-        private System.Windows.Forms.Button btnSaveAssignments;
-        private System.Windows.Forms.ListBox listBoxTasks;
-        private System.Windows.Forms.ComboBox comboBoxWorker;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBoxAddWorker;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtEmail;
@@ -852,5 +846,11 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBoxCustomerRating;
         private System.Windows.Forms.Label lblSaveCustomerError;
+        private System.Windows.Forms.GroupBox groupBoxAssignResponsibilty;
+        private System.Windows.Forms.Button btnSaveAssignments;
+        private System.Windows.Forms.ListBox listBoxTasks;
+        private System.Windows.Forms.ComboBox comboBoxWorker;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }

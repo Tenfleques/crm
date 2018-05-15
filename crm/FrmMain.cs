@@ -28,5 +28,12 @@ namespace crm {
             this.tableAdapterManager.UpdateAll(this.adventureWorks2016DataSet);
 
         }
+
+        private void customerBindingNavigatorSaveItem_Click_1(object sender, EventArgs e) {
+            this.Validate();
+            this.customerBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.adventureWorks2016DataSet);
+
+        }
     }
 }
