@@ -23,6 +23,13 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabsMain = new System.Windows.Forms.TabControl();
             this.tabSalesForce = new System.Windows.Forms.TabPage();
             this.groupBoxWall = new System.Windows.Forms.GroupBox();
@@ -33,6 +40,12 @@
             this.btnPost = new System.Windows.Forms.Button();
             this.txtPost = new System.Windows.Forms.TextBox();
             this.tabHumanResource = new System.Windows.Forms.TabPage();
+            this.groupBoxAssignResponsibilty = new System.Windows.Forms.GroupBox();
+            this.btnSaveAssignments = new System.Windows.Forms.Button();
+            this.listBoxTasks = new System.Windows.Forms.ListBox();
+            this.comboBoxWorker = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBoxAddWorker = new System.Windows.Forms.GroupBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -75,17 +88,23 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBoxClientGroups = new System.Windows.Forms.GroupBox();
             this.tabBusinessReporting = new System.Windows.Forms.TabPage();
+            this.chartProductSales = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lblTotalSales = new System.Windows.Forms.Label();
+            this.lblUnitsSold = new System.Windows.Forms.Label();
+            this.lblNumSales = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.labela = new System.Windows.Forms.Label();
+            this.labelNumberOfProducts = new System.Windows.Forms.Label();
+            this.labelProductsOverview = new System.Windows.Forms.Label();
             this.tabAnalytics = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBoxWorker = new System.Windows.Forms.ComboBox();
-            this.listBoxTasks = new System.Windows.Forms.ListBox();
-            this.btnSaveAssignments = new System.Windows.Forms.Button();
-            this.groupBoxAssignResponsibilty = new System.Windows.Forms.GroupBox();
+            this.vSalesPersonBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vSalesPersonTableAdapter = new crm.topSellersTableAdapters.vSalesPersonTableAdapter();
             this.tabsMain.SuspendLayout();
             this.tabSalesForce.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabHumanResource.SuspendLayout();
+            this.groupBoxAssignResponsibilty.SuspendLayout();
             this.groupBoxAddWorker.SuspendLayout();
             this.tabCustomerService.SuspendLayout();
             this.groupBoxAddClient.SuspendLayout();
@@ -93,7 +112,10 @@
             this.tabMarketing.SuspendLayout();
             this.groupBoxCreateCampaign.SuspendLayout();
             this.groupBoxCreateGroup.SuspendLayout();
-            this.groupBoxAssignResponsibilty.SuspendLayout();
+            this.tabBusinessReporting.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartProductSales)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vSalesPersonBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabsMain
@@ -114,6 +136,7 @@
             this.tabsMain.SelectedIndex = 0;
             this.tabsMain.Size = new System.Drawing.Size(780, 480);
             this.tabsMain.TabIndex = 0;
+            this.tabsMain.SelectedIndexChanged += new System.EventHandler(this.tabsMain_SelectedIndexChanged);
             // 
             // tabSalesForce
             // 
@@ -216,6 +239,72 @@
             this.tabHumanResource.Size = new System.Drawing.Size(772, 442);
             this.tabHumanResource.TabIndex = 1;
             this.tabHumanResource.Text = "Управление персоналом";
+            // 
+            // groupBoxAssignResponsibilty
+            // 
+            this.groupBoxAssignResponsibilty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxAssignResponsibilty.Controls.Add(this.btnSaveAssignments);
+            this.groupBoxAssignResponsibilty.Controls.Add(this.listBoxTasks);
+            this.groupBoxAssignResponsibilty.Controls.Add(this.comboBoxWorker);
+            this.groupBoxAssignResponsibilty.Controls.Add(this.label4);
+            this.groupBoxAssignResponsibilty.Controls.Add(this.label3);
+            this.groupBoxAssignResponsibilty.Location = new System.Drawing.Point(7, 217);
+            this.groupBoxAssignResponsibilty.Name = "groupBoxAssignResponsibilty";
+            this.groupBoxAssignResponsibilty.Size = new System.Drawing.Size(427, 213);
+            this.groupBoxAssignResponsibilty.TabIndex = 9;
+            this.groupBoxAssignResponsibilty.TabStop = false;
+            this.groupBoxAssignResponsibilty.Text = "Назначить задачу";
+            // 
+            // btnSaveAssignments
+            // 
+            this.btnSaveAssignments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveAssignments.Location = new System.Drawing.Point(74, 184);
+            this.btnSaveAssignments.Name = "btnSaveAssignments";
+            this.btnSaveAssignments.Size = new System.Drawing.Size(335, 23);
+            this.btnSaveAssignments.TabIndex = 4;
+            this.btnSaveAssignments.Text = "Сохранить";
+            this.btnSaveAssignments.UseVisualStyleBackColor = true;
+            // 
+            // listBoxTasks
+            // 
+            this.listBoxTasks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxTasks.FormattingEnabled = true;
+            this.listBoxTasks.Location = new System.Drawing.Point(74, 77);
+            this.listBoxTasks.Name = "listBoxTasks";
+            this.listBoxTasks.Size = new System.Drawing.Size(335, 95);
+            this.listBoxTasks.TabIndex = 3;
+            // 
+            // comboBoxWorker
+            // 
+            this.comboBoxWorker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxWorker.FormattingEnabled = true;
+            this.comboBoxWorker.Location = new System.Drawing.Point(74, 39);
+            this.comboBoxWorker.Name = "comboBoxWorker";
+            this.comboBoxWorker.Size = new System.Drawing.Size(335, 21);
+            this.comboBoxWorker.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Задачи";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 39);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Сотрудник";
             // 
             // groupBoxAddWorker
             // 
@@ -566,7 +655,6 @@
             this.lblTargetClients.Size = new System.Drawing.Size(44, 13);
             this.lblTargetClients.TabIndex = 3;
             this.lblTargetClients.Text = "пусто...";
-            this.lblTargetClients.Click += new System.EventHandler(this.label11_Click);
             // 
             // label10
             // 
@@ -676,12 +764,121 @@
             // 
             // tabBusinessReporting
             // 
+            this.tabBusinessReporting.Controls.Add(this.chartProductSales);
+            this.tabBusinessReporting.Controls.Add(this.chart1);
+            this.tabBusinessReporting.Controls.Add(this.lblTotalSales);
+            this.tabBusinessReporting.Controls.Add(this.lblUnitsSold);
+            this.tabBusinessReporting.Controls.Add(this.lblNumSales);
+            this.tabBusinessReporting.Controls.Add(this.label17);
+            this.tabBusinessReporting.Controls.Add(this.labela);
+            this.tabBusinessReporting.Controls.Add(this.labelNumberOfProducts);
+            this.tabBusinessReporting.Controls.Add(this.labelProductsOverview);
             this.tabBusinessReporting.Location = new System.Drawing.Point(4, 34);
             this.tabBusinessReporting.Name = "tabBusinessReporting";
             this.tabBusinessReporting.Padding = new System.Windows.Forms.Padding(3);
             this.tabBusinessReporting.Size = new System.Drawing.Size(772, 442);
             this.tabBusinessReporting.TabIndex = 4;
             this.tabBusinessReporting.Text = "Бизнес-отчеты";
+            // 
+            // chartProductSales
+            // 
+            this.chartProductSales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            chartArea1.AxisX.Interval = 1D;
+            chartArea1.Name = "ChartArea1";
+            this.chartProductSales.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartProductSales.Legends.Add(legend1);
+            this.chartProductSales.Location = new System.Drawing.Point(17, 87);
+            this.chartProductSales.Name = "chartProductSales";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartProductSales.Series.Add(series1);
+            this.chartProductSales.Size = new System.Drawing.Size(475, 349);
+            this.chartProductSales.TabIndex = 9;
+            // 
+            // chart1
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(498, 87);
+            this.chart1.Name = "chart1";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(268, 300);
+            this.chart1.TabIndex = 8;
+            this.chart1.Text = "оп-10 по стоймости продаж";
+            // 
+            // lblTotalSales
+            // 
+            this.lblTotalSales.AutoSize = true;
+            this.lblTotalSales.Location = new System.Drawing.Point(570, 44);
+            this.lblTotalSales.Name = "lblTotalSales";
+            this.lblTotalSales.Size = new System.Drawing.Size(41, 13);
+            this.lblTotalSales.TabIndex = 6;
+            this.lblTotalSales.Text = "label15";
+            // 
+            // lblUnitsSold
+            // 
+            this.lblUnitsSold.AutoSize = true;
+            this.lblUnitsSold.Location = new System.Drawing.Point(393, 44);
+            this.lblUnitsSold.Name = "lblUnitsSold";
+            this.lblUnitsSold.Size = new System.Drawing.Size(41, 13);
+            this.lblUnitsSold.TabIndex = 5;
+            this.lblUnitsSold.Text = "label15";
+            // 
+            // lblNumSales
+            // 
+            this.lblNumSales.AutoSize = true;
+            this.lblNumSales.Location = new System.Drawing.Point(216, 44);
+            this.lblNumSales.Name = "lblNumSales";
+            this.lblNumSales.Size = new System.Drawing.Size(41, 13);
+            this.lblNumSales.TabIndex = 4;
+            this.lblNumSales.Text = "label15";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(540, 17);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(82, 13);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Всего продано";
+            // 
+            // labela
+            // 
+            this.labela.AutoSize = true;
+            this.labela.Location = new System.Drawing.Point(369, 17);
+            this.labela.Name = "labela";
+            this.labela.Size = new System.Drawing.Size(103, 13);
+            this.labela.TabIndex = 2;
+            this.labela.Text = "Проданных единиц";
+            // 
+            // labelNumberOfProducts
+            // 
+            this.labelNumberOfProducts.AutoSize = true;
+            this.labelNumberOfProducts.Location = new System.Drawing.Point(180, 17);
+            this.labelNumberOfProducts.Name = "labelNumberOfProducts";
+            this.labelNumberOfProducts.Size = new System.Drawing.Size(121, 13);
+            this.labelNumberOfProducts.TabIndex = 1;
+            this.labelNumberOfProducts.Text = "Количество продуктов";
+            // 
+            // labelProductsOverview
+            // 
+            this.labelProductsOverview.AutoSize = true;
+            this.labelProductsOverview.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProductsOverview.Location = new System.Drawing.Point(14, 27);
+            this.labelProductsOverview.Name = "labelProductsOverview";
+            this.labelProductsOverview.Size = new System.Drawing.Size(149, 18);
+            this.labelProductsOverview.TabIndex = 0;
+            this.labelProductsOverview.Text = "Лучшие продавцы";
             // 
             // tabAnalytics
             // 
@@ -692,71 +889,9 @@
             this.tabAnalytics.TabIndex = 5;
             this.tabAnalytics.Text = "Аналитика";
             // 
-            // label3
+            // vSalesPersonTableAdapter
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Сотрудник";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 77);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Задачи";
-            // 
-            // comboBoxWorker
-            // 
-            this.comboBoxWorker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxWorker.FormattingEnabled = true;
-            this.comboBoxWorker.Location = new System.Drawing.Point(74, 39);
-            this.comboBoxWorker.Name = "comboBoxWorker";
-            this.comboBoxWorker.Size = new System.Drawing.Size(335, 21);
-            this.comboBoxWorker.TabIndex = 2;
-            // 
-            // listBoxTasks
-            // 
-            this.listBoxTasks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxTasks.FormattingEnabled = true;
-            this.listBoxTasks.Location = new System.Drawing.Point(74, 77);
-            this.listBoxTasks.Name = "listBoxTasks";
-            this.listBoxTasks.Size = new System.Drawing.Size(335, 95);
-            this.listBoxTasks.TabIndex = 3;
-            // 
-            // btnSaveAssignments
-            // 
-            this.btnSaveAssignments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveAssignments.Location = new System.Drawing.Point(74, 184);
-            this.btnSaveAssignments.Name = "btnSaveAssignments";
-            this.btnSaveAssignments.Size = new System.Drawing.Size(335, 23);
-            this.btnSaveAssignments.TabIndex = 4;
-            this.btnSaveAssignments.Text = "Сохранить";
-            this.btnSaveAssignments.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxAssignResponsibilty
-            // 
-            this.groupBoxAssignResponsibilty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxAssignResponsibilty.Controls.Add(this.btnSaveAssignments);
-            this.groupBoxAssignResponsibilty.Controls.Add(this.listBoxTasks);
-            this.groupBoxAssignResponsibilty.Controls.Add(this.comboBoxWorker);
-            this.groupBoxAssignResponsibilty.Controls.Add(this.label4);
-            this.groupBoxAssignResponsibilty.Controls.Add(this.label3);
-            this.groupBoxAssignResponsibilty.Location = new System.Drawing.Point(7, 217);
-            this.groupBoxAssignResponsibilty.Name = "groupBoxAssignResponsibilty";
-            this.groupBoxAssignResponsibilty.Size = new System.Drawing.Size(427, 213);
-            this.groupBoxAssignResponsibilty.TabIndex = 9;
-            this.groupBoxAssignResponsibilty.TabStop = false;
-            this.groupBoxAssignResponsibilty.Text = "Назначить задачу";
+            this.vSalesPersonTableAdapter.ClearBeforeFill = true;
             // 
             // FrmMain
             // 
@@ -773,6 +908,8 @@
             this.groupBox1.PerformLayout();
             this.tabHumanResource.ResumeLayout(false);
             this.tabHumanResource.PerformLayout();
+            this.groupBoxAssignResponsibilty.ResumeLayout(false);
+            this.groupBoxAssignResponsibilty.PerformLayout();
             this.groupBoxAddWorker.ResumeLayout(false);
             this.groupBoxAddWorker.PerformLayout();
             this.tabCustomerService.ResumeLayout(false);
@@ -785,8 +922,11 @@
             this.groupBoxCreateCampaign.PerformLayout();
             this.groupBoxCreateGroup.ResumeLayout(false);
             this.groupBoxCreateGroup.PerformLayout();
-            this.groupBoxAssignResponsibilty.ResumeLayout(false);
-            this.groupBoxAssignResponsibilty.PerformLayout();
+            this.tabBusinessReporting.ResumeLayout(false);
+            this.tabBusinessReporting.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartProductSales)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vSalesPersonBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -852,5 +992,16 @@
         private System.Windows.Forms.ComboBox comboBoxWorker;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTotalSales;
+        private System.Windows.Forms.Label lblUnitsSold;
+        private System.Windows.Forms.Label lblNumSales;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label labela;
+        private System.Windows.Forms.Label labelNumberOfProducts;
+        private System.Windows.Forms.Label labelProductsOverview;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartProductSales;
+        private System.Windows.Forms.BindingSource vSalesPersonBindingSource;
+        private topSellersTableAdapters.vSalesPersonTableAdapter vSalesPersonTableAdapter;
     }
 }

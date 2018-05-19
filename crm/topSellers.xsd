@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="topSellers" targetNamespace="http://tempuri.org/topSellers.xsd" xmlns:mstns="http://tempuri.org/topSellers.xsd" xmlns="http://tempuri.org/topSellers.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="AdventureWorks2016Data" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="AdventureWorks2016Data (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.crm.Properties.Settings.GlobalReference.Default.AdventureWorks2016Data" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vSalesPersonTableAdapter" GeneratorDataComponentClassName="vSalesPersonTableAdapter" Name="vSalesPerson" UserDataComponentName="vSalesPersonTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AdventureWorks2016Data (Settings)" DbObjectName="AdventureWorks2016.Sales.vSalesPerson" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Title, FirstName, LastName, SalesYTD FROM Sales.vSalesPerson</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Title" DataSetColumn="Title" />
+              <Mapping SourceColumn="FirstName" DataSetColumn="FirstName" />
+              <Mapping SourceColumn="LastName" DataSetColumn="LastName" />
+              <Mapping SourceColumn="SalesYTD" DataSetColumn="SalesYTD" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="topSellers" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="topSellers" msprop:Generator_UserDSName="topSellers">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vSalesPerson" msprop:Generator_TableClassName="vSalesPersonDataTable" msprop:Generator_TableVarName="tablevSalesPerson" msprop:Generator_RowChangedName="vSalesPersonRowChanged" msprop:Generator_TablePropName="vSalesPerson" msprop:Generator_RowDeletingName="vSalesPersonRowDeleting" msprop:Generator_RowChangingName="vSalesPersonRowChanging" msprop:Generator_RowEvHandlerName="vSalesPersonRowChangeEventHandler" msprop:Generator_RowDeletedName="vSalesPersonRowDeleted" msprop:Generator_RowClassName="vSalesPersonRow" msprop:Generator_UserTableName="vSalesPerson" msprop:Generator_RowEvArgName="vSalesPersonRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_UserColumnName="Title" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_UserColumnName="FirstName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LastName" msprop:Generator_ColumnVarNameInTable="columnLastName" msprop:Generator_ColumnPropNameInRow="LastName" msprop:Generator_ColumnPropNameInTable="LastNameColumn" msprop:Generator_UserColumnName="LastName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SalesYTD" msprop:Generator_ColumnVarNameInTable="columnSalesYTD" msprop:Generator_ColumnPropNameInRow="SalesYTD" msprop:Generator_ColumnPropNameInTable="SalesYTDColumn" msprop:Generator_UserColumnName="SalesYTD" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
