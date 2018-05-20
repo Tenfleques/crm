@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace crm {
     public partial class FrmMain : Form {
-        DataTable table;
+        Queries queries = new Queries();
         //public event EventHandler SelectedIndexChanged;
         public FrmMain() {
             InitializeComponent();
@@ -40,34 +41,19 @@ namespace crm {
 
         }
         public void getProductsStats() {
-            table = new DataTable();
-            //in some of your methods:
-            using (SqlConnection sqlConn = new SqlConnection(Properties.Settings.Default.AdventureWorks2016Data)) {
-                string sqlQuery = @"SELECT Production.Product.Name, sum(s.OrderQty) unitssold, sum(s.TotalDue) valuesales FROM Production.Product join Sales.SalesOrderDetail s on Production.Product.ProductID = s.ProductID 
-                  GROUP BY Product.Name";
-                /*sqlQuery = @"select sys.tables.name as TableNmae, sys.schemas.name as SchemaName from sys.tables inner join sys.schemas on sys.tables.schema_id = sys.schemas.schema_id";*/
-                using (SqlCommand cmd = new SqlCommand(sqlQuery, sqlConn)) {
-                    SqlDataAdapter ds = new SqlDataAdapter(cmd);
-                    ds.Fill(table);
-                }
-            }
-            
+            DataTable table = queries.getProductsStats();
+            Double unitsSold = 0.0;
+            Double valueSales = 0.0;
             foreach (DataRow dr in table.Rows) {
-                Console.WriteLine(dr[0] + " " + dr[1]);
-                //this.chartProductSales.Series[0].Points.AddXY(dr[0], dr[1]);
+                unitsSold += Convert.ToDouble(dr[1]);
+                valueSales += Convert.ToDouble(dr[2]);
             }
+            this.lblNumProducts.Text = table.Rows.Count.ToString();
+            this.lblUnitsSold.Text = unitsSold.ToString("$ 0,.#K", CultureInfo.InvariantCulture);
+            this.lblValueTotalSales.Text = valueSales.ToString("$ 0,,.##M", CultureInfo.InvariantCulture);
         }
         private void getTopSellers() {
-            table = new DataTable();
-            using (SqlConnection sqlConn = new SqlConnection(Properties.Settings.Default.AdventureWorks2016Data)) {
-                string sqlQuery = @"SELECT TOP 10 concat(LastName,' ',FirstName) n, SalesYTD s FROM Sales.vSalesPerson ";
-
-                //sqlQuery = @"select sys.tables.name as TableNmae, sys.schemas.name as SchemaName from sys.tables inner join sys.schemas on sys.tables.schema_id = sys.schemas.schema_id";
-                using (SqlCommand cmd = new SqlCommand(sqlQuery, sqlConn)) {
-                    SqlDataAdapter ds = new SqlDataAdapter(cmd);
-                    ds.Fill(table);
-                }
-            }
+            DataTable table = queries.getTopSellers();            
             foreach (DataRow dr in table.Rows) {
                 //Console.WriteLine(dr[0] + " " + dr[1]);
                 this.chartProductSales.Series[0].Points.AddXY(dr[0], dr[1]);

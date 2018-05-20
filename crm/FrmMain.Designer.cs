@@ -27,9 +27,6 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabsMain = new System.Windows.Forms.TabControl();
             this.tabSalesForce = new System.Windows.Forms.TabPage();
             this.groupBoxWall = new System.Windows.Forms.GroupBox();
@@ -89,10 +86,9 @@
             this.groupBoxClientGroups = new System.Windows.Forms.GroupBox();
             this.tabBusinessReporting = new System.Windows.Forms.TabPage();
             this.chartProductSales = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lblTotalSales = new System.Windows.Forms.Label();
+            this.lblValueTotalSales = new System.Windows.Forms.Label();
             this.lblUnitsSold = new System.Windows.Forms.Label();
-            this.lblNumSales = new System.Windows.Forms.Label();
+            this.lblNumProducts = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.labela = new System.Windows.Forms.Label();
             this.labelNumberOfProducts = new System.Windows.Forms.Label();
@@ -114,7 +110,6 @@
             this.groupBoxCreateGroup.SuspendLayout();
             this.tabBusinessReporting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartProductSales)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vSalesPersonBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -765,10 +760,9 @@
             // tabBusinessReporting
             // 
             this.tabBusinessReporting.Controls.Add(this.chartProductSales);
-            this.tabBusinessReporting.Controls.Add(this.chart1);
-            this.tabBusinessReporting.Controls.Add(this.lblTotalSales);
+            this.tabBusinessReporting.Controls.Add(this.lblValueTotalSales);
             this.tabBusinessReporting.Controls.Add(this.lblUnitsSold);
-            this.tabBusinessReporting.Controls.Add(this.lblNumSales);
+            this.tabBusinessReporting.Controls.Add(this.lblNumProducts);
             this.tabBusinessReporting.Controls.Add(this.label17);
             this.tabBusinessReporting.Controls.Add(this.labela);
             this.tabBusinessReporting.Controls.Add(this.labelNumberOfProducts);
@@ -782,66 +776,54 @@
             // 
             // chartProductSales
             // 
-            this.chartProductSales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.chartProductSales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             chartArea1.AxisX.Interval = 1D;
             chartArea1.Name = "ChartArea1";
             this.chartProductSales.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
             legend1.Name = "Legend1";
             this.chartProductSales.Legends.Add(legend1);
-            this.chartProductSales.Location = new System.Drawing.Point(17, 87);
+            this.chartProductSales.Location = new System.Drawing.Point(6, 87);
             this.chartProductSales.Name = "chartProductSales";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartProductSales.Series.Add(series1);
-            this.chartProductSales.Size = new System.Drawing.Size(475, 349);
+            this.chartProductSales.Size = new System.Drawing.Size(760, 349);
             this.chartProductSales.TabIndex = 9;
             // 
-            // chart1
+            // lblValueTotalSales
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(498, 87);
-            this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(268, 300);
-            this.chart1.TabIndex = 8;
-            this.chart1.Text = "оп-10 по стоймости продаж";
-            // 
-            // lblTotalSales
-            // 
-            this.lblTotalSales.AutoSize = true;
-            this.lblTotalSales.Location = new System.Drawing.Point(570, 44);
-            this.lblTotalSales.Name = "lblTotalSales";
-            this.lblTotalSales.Size = new System.Drawing.Size(41, 13);
-            this.lblTotalSales.TabIndex = 6;
-            this.lblTotalSales.Text = "label15";
+            this.lblValueTotalSales.AutoSize = true;
+            this.lblValueTotalSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValueTotalSales.Location = new System.Drawing.Point(570, 44);
+            this.lblValueTotalSales.Name = "lblValueTotalSales";
+            this.lblValueTotalSales.Size = new System.Drawing.Size(48, 13);
+            this.lblValueTotalSales.TabIndex = 6;
+            this.lblValueTotalSales.Text = "label15";
             // 
             // lblUnitsSold
             // 
             this.lblUnitsSold.AutoSize = true;
+            this.lblUnitsSold.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnitsSold.Location = new System.Drawing.Point(393, 44);
             this.lblUnitsSold.Name = "lblUnitsSold";
-            this.lblUnitsSold.Size = new System.Drawing.Size(41, 13);
+            this.lblUnitsSold.Size = new System.Drawing.Size(48, 13);
             this.lblUnitsSold.TabIndex = 5;
             this.lblUnitsSold.Text = "label15";
             // 
-            // lblNumSales
+            // lblNumProducts
             // 
-            this.lblNumSales.AutoSize = true;
-            this.lblNumSales.Location = new System.Drawing.Point(216, 44);
-            this.lblNumSales.Name = "lblNumSales";
-            this.lblNumSales.Size = new System.Drawing.Size(41, 13);
-            this.lblNumSales.TabIndex = 4;
-            this.lblNumSales.Text = "label15";
+            this.lblNumProducts.AutoSize = true;
+            this.lblNumProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumProducts.Location = new System.Drawing.Point(216, 44);
+            this.lblNumProducts.Name = "lblNumProducts";
+            this.lblNumProducts.Size = new System.Drawing.Size(48, 13);
+            this.lblNumProducts.TabIndex = 4;
+            this.lblNumProducts.Text = "label15";
             // 
             // label17
             // 
@@ -925,7 +907,6 @@
             this.tabBusinessReporting.ResumeLayout(false);
             this.tabBusinessReporting.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartProductSales)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vSalesPersonBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -992,14 +973,13 @@
         private System.Windows.Forms.ComboBox comboBoxWorker;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblTotalSales;
+        private System.Windows.Forms.Label lblValueTotalSales;
         private System.Windows.Forms.Label lblUnitsSold;
-        private System.Windows.Forms.Label lblNumSales;
+        private System.Windows.Forms.Label lblNumProducts;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label labela;
         private System.Windows.Forms.Label labelNumberOfProducts;
         private System.Windows.Forms.Label labelProductsOverview;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartProductSales;
         private System.Windows.Forms.BindingSource vSalesPersonBindingSource;
         private topSellersTableAdapters.vSalesPersonTableAdapter vSalesPersonTableAdapter;

@@ -124,6 +124,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>topSellers.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Utils.cs" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
