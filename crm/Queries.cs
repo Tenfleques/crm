@@ -14,6 +14,7 @@ namespace crm {
             var sql = "WITH CTE AS(SELECT CustomerID, TotSales= SUM(Subtotal),                 DR = DENSE_RANK() OVER(ORDER BY SUM(Subtotal) DESC)            FROM Sales.SalesOrderHeader" +
                 " GROUP BY CustomerID) SELECT* FROM CTE WHERE DR <= 10 ORDER BY DR, CustomerID;";
         }
+        
         public DataTable getProductsStats() {
             DataTable table = new DataTable();
             //in some of your methods:
