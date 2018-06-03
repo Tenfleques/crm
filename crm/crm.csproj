@@ -86,6 +86,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AdventureWorks2016DataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Constants.cs" />
     <Compile Include="FrmDBsetup.cs">
       <SubType>Form</SubType>
     </Compile>
