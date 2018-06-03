@@ -81,11 +81,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AdventureWorks2016DataSet11.xsd</DependentUpon>
     </Compile>
-    <Compile Include="AdventureWorks2016DataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdventureWorks2016DataSet2.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="FrmDBsetup.cs">
       <SubType>Form</SubType>
@@ -120,11 +115,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries.cs" />
-    <Compile Include="topSellers.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>topSellers.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Utils.cs" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -155,17 +145,6 @@
     <None Include="AdventureWorks2016DataSet11.xss">
       <DependentUpon>AdventureWorks2016DataSet11.xsd</DependentUpon>
     </None>
-    <None Include="AdventureWorks2016DataSet2.xsc">
-      <DependentUpon>AdventureWorks2016DataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="AdventureWorks2016DataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AdventureWorks2016DataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="AdventureWorks2016DataSet2.xss">
-      <DependentUpon>AdventureWorks2016DataSet2.xsd</DependentUpon>
-    </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -176,17 +155,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="topSellers.xsc">
-      <DependentUpon>topSellers.xsd</DependentUpon>
-    </None>
-    <None Include="topSellers.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>topSellers.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="topSellers.xss">
-      <DependentUpon>topSellers.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
