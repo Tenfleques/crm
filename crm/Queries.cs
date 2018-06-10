@@ -89,6 +89,58 @@ namespace crm {
             }
             return table;
         }
+        public DataTable getCustomersByCountry() {
+            DataTable table = new DataTable();
+            using (SqlConnection sqlConn = new SqlConnection(Properties.Settings.Default.AdventureWorks2016Data)) {
+                string sqlQuery = @"SELECT c.BusinessEntityID 
+	          ,c.PhoneNumber
+	          ,c.EmailAddress
+	          ,c.City
+	          ,c.StateProvinceName
+	          ,c.CountryRegionName 
+              ,CONCAT(c.FirstName, ' ', c.LastName) Name
+          FROM Sales.vIndividualCustomer c";
+
+                using (SqlCommand cmd = new SqlCommand(sqlQuery, sqlConn)) {
+                    SqlDataAdapter ds = new SqlDataAdapter(cmd);
+                    ds.Fill(table);
+                }
+            }
+            return table;
+        }
+        public DataTable getCustomerSupport(int businessID) {
+            DataTable table = new DataTable();
+            using (SqlConnection sqlConn = new SqlConnection(Properties.Settings.Default.AdventureWorks2016Data)) {
+                string sqlQuery = @"SELECT c.BusinessEntityID 
+	            ,c.PhoneNumber
+	            ,c.EmailAddress
+	            ,c.City
+	            ,c.StateProvinceName
+	            ,c.CountryRegionName 
+                ,CONCAT(c.FirstName, ' ', c.LastName) Name
+                ,[supportid]
+                ,[message]
+                ,[date]
+                ,[messageid]
+                ,[replyto]
+                ,CONCAT(e.FirstName, ' ', e.LastName) support
+            FROM [Sales].[CustomerHelp] ch
+            JOIN Sales.vIndividualCustomer c            
+            ON c.BusinessEntityID = ch.customerid
+            JOIN HumanResources.vEmployee e
+            ON e.BusinessEntityID = ch.supportid";
+
+                if(businessID > 0)
+                    sqlQuery += " WHERE c.BusinessEntityID = " +businessID;
+                sqlQuery += " ORDER BY [date] DESC"; 
+
+                using (SqlCommand cmd = new SqlCommand(sqlQuery, sqlConn)) {
+                    SqlDataAdapter ds = new SqlDataAdapter(cmd);
+                    ds.Fill(table);
+                }
+            }
+            return table;
+        }
 
         //insertions
 

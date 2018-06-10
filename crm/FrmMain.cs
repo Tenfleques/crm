@@ -13,9 +13,16 @@ using System.Windows.Forms;
 namespace crm {
     public partial class FrmMain : Form {
         Queries queries = new Queries();
-        DataTable specialOffers; 
+        Utils utils = new Utils();
+        DataTable specialOffers;
+        DataTable customersByCountry;
+        Dictionary<string, List<KeyValuePair<string, string>>> countriesToCustomers;
         public FrmMain() {
+            
             InitializeComponent();
+            //some settings
+            listViewSettings();
+
             getTopSellers();
             getProductsStats();
             populateSalesPersons();
@@ -25,8 +32,35 @@ namespace crm {
 
             specialOffers = queries.getSpecialOffers("");
             populateSpecialOffers();
-        }
 
+            //customers support page            
+            countriesToCustomers = new Dictionary<string, List<KeyValuePair<string, string>>>();
+            customersByCountry = queries.getCustomersByCountry();
+
+            foreach (DataRow dr in customersByCountry.Rows) {
+                string key = dr[5].ToString();
+                KeyValuePair<String, String> customerCard = utils.customerCard(dr);
+
+                if (countriesToCustomers.ContainsKey(key)) {
+                    countriesToCustomers[key].Add(customerCard);
+                } else {
+                    countriesToCustomers.Add(key, new List<KeyValuePair<String, String>>() { customerCard });
+                }
+            }
+            listCustomersByCountry();
+            listCustomerSupportTimeline();
+        }
+        //settings
+        private void listViewSettings() {
+            ColumnHeader header = new ColumnHeader();
+            header.Text = "";
+            header.Name = "col1";
+            header.Width = this.listViewSpecialOffers.Width;
+            this.listViewSpecialOffers.Columns.Add(header);
+        }
+        //end settings
+
+        //events
         private void btnPost_Click(object sender, EventArgs e) {
            
         }
@@ -38,6 +72,28 @@ namespace crm {
                     break;
             }
         }
+        private void treeViewNode_Click(object sender, TreeNodeMouseClickEventArgs e) {
+            String[] card = e.Node.Tag.ToString().Split('*');
+            customerHelpCurrentView(card);
+        }
+        private void fromTLCustomerSupportView_Click(object sender, EventArgs e) {
+            RichTextBox initiator = sender as RichTextBox;
+            
+            String[] card = initiator.Tag.ToString().Split('*');
+            customerHelpCurrentView(card);
+        }
+        private void customerHelpCurrentView(String[] card) {
+            if (card.Length == 2) {
+                int businessID = Convert.ToInt32(card[0]);
+                this.richTextBoxCustomerProfile.Text = card[1];
+                Console.WriteLine(businessID);
+                DataTable supportStream = queries.getCustomerSupport(businessID);
+                populateSupportStream(supportStream);
+            }
+        }
+        //end of events 
+
+        //business report tab
         public void getProductsStats() {
             DataTable table = queries.getProductsStats();
             Double unitsSold = 0.0;
@@ -56,6 +112,40 @@ namespace crm {
                 this.chartProductSales.Series[0].Points.AddXY(dr[0], dr[1]);
             }
         }
+        //end of business reports tab
+        //start of customer support page
+        private void listCustomersByCountry() {
+            foreach (var card in countriesToCustomers) {
+                this.treeViewClientsByCountry.Nodes.Add(card.Key,card.Key);
+                this.treeViewClientsByCountry.Nodes[card.Key].Tag = "";
+                foreach (var customer in card.Value) {
+                    this.treeViewClientsByCountry.Nodes[card.Key].Nodes.Add(customer.Key, customer.Key);
+                    this.treeViewClientsByCountry.Nodes[card.Key].Nodes[customer.Key].Tag = customer.Value;
+                }                
+            }
+            this.treeViewClientsByCountry.NodeMouseClick += new TreeNodeMouseClickEventHandler(treeViewNode_Click);
+        } 
+        private void listCustomerSupportTimeline() {
+            DataTable supportStream = queries.getCustomerSupport(-1); //get all support, last message
+            foreach(DataRow dr in supportStream.Rows) {
+                RichTextBox txtBox = utils.supportCard(dr);
+                txtBox.BackColor = Color.White;
+                txtBox.Width = this.tabPageChats.Width;
+                txtBox.Click += new System.EventHandler(fromTLCustomerSupportView_Click);
+                this.flowLayoutPanelHelpLine.Controls.Add(txtBox);
+            }
+        }
+
+        private void populateSupportStream(DataTable support) {            
+            foreach (DataRow supportRow in support.Rows) {
+                RichTextBox txtBox = utils.supportCard(supportRow);
+                txtBox.Width = this.groupBoxCurrentMessage.Width;
+                this.flowLayoutPanelActiveSupport.Controls.Add(txtBox);
+            }
+        }
+        //end of customer support page
+
+        //special offers page [Marketing]
         private void populateSalesPersons() {
             DataTable table = queries.getSalesPersons();
 
@@ -135,12 +225,7 @@ namespace crm {
                     dr[7].ToString() + "\nМакс. Количество: " +
                     dr[8].ToString() + "\n";   
                 this.listViewSpecialOffers.Items.Add(lsV);
-            }
-            ColumnHeader header = new ColumnHeader();
-            header.Text = "";
-            header.Name = "col1";
-            header.Width = this.listViewSpecialOffers.Width;
-            this.listViewSpecialOffers.Columns.Add(header);
+            }            
             this.listViewSpecialOffers.Click += new System.EventHandler(listViewSpecialOffers_ItemActivate);
         }
         
@@ -148,6 +233,7 @@ namespace crm {
             this.richTextBoxSpecialInfoDetails.Text = this.listViewSpecialOffers.SelectedItems[0].Tag.ToString();
         }
 
+        //saving special offer
         private void btnSaveCampaign_Click(object sender, EventArgs e) {
             if (this.txtOfferDescription.Text == "") {
                 //error
@@ -164,5 +250,11 @@ namespace crm {
             specialOffers = queries.getSpecialOffers("");
             populateSpecialOffers();
         }
+
+        private void FrmMain_Load(object sender, EventArgs e) {
+
+        }
+
+        //end of marketing page
     }
 }

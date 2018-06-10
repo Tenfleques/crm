@@ -23,9 +23,9 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabsMain = new System.Windows.Forms.TabControl();
             this.tabSalesForce = new System.Windows.Forms.TabPage();
             this.groupBoxWall = new System.Windows.Forms.GroupBox();
@@ -51,18 +51,41 @@
             this.txtSearchEmployee = new System.Windows.Forms.TextBox();
             this.listWorkers = new System.Windows.Forms.ListView();
             this.tabCustomerService = new System.Windows.Forms.TabPage();
+            this.richTextBoxCustomerProfile = new System.Windows.Forms.RichTextBox();
             this.groupBoxClientSupport = new System.Windows.Forms.GroupBox();
+            this.tabControlHelpDesk = new System.Windows.Forms.TabControl();
+            this.tabPageChats = new System.Windows.Forms.TabPage();
+            this.tabPageAllClients = new System.Windows.Forms.TabPage();
+            this.treeViewClientsByCountry = new System.Windows.Forms.TreeView();
             this.groupBoxCurrentMessage = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnSendMsg = new System.Windows.Forms.Button();
             this.txtComment = new System.Windows.Forms.TextBox();
             this.tabMarketing = new System.Windows.Forms.TabPage();
             this.groupBoxCreateCampaign = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.comboBoxOfferProduct = new System.Windows.Forms.ComboBox();
+            this.numericUpDownOfferMax = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownOfferMin = new System.Windows.Forms.NumericUpDown();
+            this.dateTimePickerOfferEnddate = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerOfferStartDate = new System.Windows.Forms.DateTimePicker();
+            this.numericUpDownOfferDiscount = new System.Windows.Forms.NumericUpDown();
+            this.comboBoxOfferType = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBoxOfferCategory = new System.Windows.Forms.ComboBox();
             this.btnSaveCampaign = new System.Windows.Forms.Button();
             this.txtOfferDescription = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBoxClientGroups = new System.Windows.Forms.GroupBox();
+            this.richTextBoxSpecialInfoDetails = new System.Windows.Forms.RichTextBox();
+            this.listViewSpecialOffers = new System.Windows.Forms.ListView();
             this.tabBusinessReporting = new System.Windows.Forms.TabPage();
             this.chartProductSales = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lblValueTotalSales = new System.Windows.Forms.Label();
@@ -73,23 +96,8 @@
             this.labelNumberOfProducts = new System.Windows.Forms.Label();
             this.labelProductsOverview = new System.Windows.Forms.Label();
             this.tabAnalytics = new System.Windows.Forms.TabPage();
-            this.comboBoxOfferCategory = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.comboBoxOfferType = new System.Windows.Forms.ComboBox();
-            this.numericUpDownOfferDiscount = new System.Windows.Forms.NumericUpDown();
-            this.dateTimePickerOfferStartDate = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerOfferEnddate = new System.Windows.Forms.DateTimePicker();
-            this.numericUpDownOfferMin = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownOfferMax = new System.Windows.Forms.NumericUpDown();
-            this.comboBoxOfferProduct = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.listViewSpecialOffers = new System.Windows.Forms.ListView();
-            this.richTextBoxSpecialInfoDetails = new System.Windows.Forms.RichTextBox();
+            this.flowLayoutPanelHelpLine = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanelActiveSupport = new System.Windows.Forms.FlowLayoutPanel();
             this.tabsMain.SuspendLayout();
             this.tabSalesForce.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -97,15 +105,20 @@
             this.groupBoxAssignResponsibilty.SuspendLayout();
             this.groupBoxAddWorker.SuspendLayout();
             this.tabCustomerService.SuspendLayout();
+            this.groupBoxClientSupport.SuspendLayout();
+            this.tabControlHelpDesk.SuspendLayout();
+            this.tabPageChats.SuspendLayout();
+            this.tabPageAllClients.SuspendLayout();
+            this.groupBoxCurrentMessage.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabMarketing.SuspendLayout();
             this.groupBoxCreateCampaign.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOfferMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOfferMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOfferDiscount)).BeginInit();
             this.groupBoxClientGroups.SuspendLayout();
             this.tabBusinessReporting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartProductSales)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOfferDiscount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOfferMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOfferMax)).BeginInit();
             this.SuspendLayout();
             // 
             // tabsMain
@@ -382,6 +395,7 @@
             // 
             // tabCustomerService
             // 
+            this.tabCustomerService.Controls.Add(this.richTextBoxCustomerProfile);
             this.tabCustomerService.Controls.Add(this.groupBoxClientSupport);
             this.tabCustomerService.Controls.Add(this.groupBoxCurrentMessage);
             this.tabCustomerService.Controls.Add(this.groupBox2);
@@ -392,11 +406,26 @@
             this.tabCustomerService.TabIndex = 2;
             this.tabCustomerService.Text = "Обслуживание клиентов";
             // 
+            // richTextBoxCustomerProfile
+            // 
+            this.richTextBoxCustomerProfile.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+            this.richTextBoxCustomerProfile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBoxCustomerProfile.BackColor = System.Drawing.SystemColors.Window;
+            this.richTextBoxCustomerProfile.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxCustomerProfile.Enabled = false;
+            this.richTextBoxCustomerProfile.Location = new System.Drawing.Point(435, 20);
+            this.richTextBoxCustomerProfile.Name = "richTextBoxCustomerProfile";
+            this.richTextBoxCustomerProfile.Size = new System.Drawing.Size(330, 96);
+            this.richTextBoxCustomerProfile.TabIndex = 3;
+            this.richTextBoxCustomerProfile.Text = "";
+            // 
             // groupBoxClientSupport
             // 
             this.groupBoxClientSupport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxClientSupport.Controls.Add(this.tabControlHelpDesk);
             this.groupBoxClientSupport.Location = new System.Drawing.Point(5, 6);
             this.groupBoxClientSupport.Name = "groupBoxClientSupport";
             this.groupBoxClientSupport.Size = new System.Drawing.Size(420, 424);
@@ -404,13 +433,57 @@
             this.groupBoxClientSupport.TabStop = false;
             this.groupBoxClientSupport.Text = "Лента обслуживания клинтов";
             // 
+            // tabControlHelpDesk
+            // 
+            this.tabControlHelpDesk.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControlHelpDesk.Controls.Add(this.tabPageChats);
+            this.tabControlHelpDesk.Controls.Add(this.tabPageAllClients);
+            this.tabControlHelpDesk.Location = new System.Drawing.Point(1, 19);
+            this.tabControlHelpDesk.Name = "tabControlHelpDesk";
+            this.tabControlHelpDesk.SelectedIndex = 0;
+            this.tabControlHelpDesk.Size = new System.Drawing.Size(413, 399);
+            this.tabControlHelpDesk.TabIndex = 0;
+            // 
+            // tabPageChats
+            // 
+            this.tabPageChats.Controls.Add(this.flowLayoutPanelHelpLine);
+            this.tabPageChats.Location = new System.Drawing.Point(4, 22);
+            this.tabPageChats.Name = "tabPageChats";
+            this.tabPageChats.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageChats.Size = new System.Drawing.Size(405, 373);
+            this.tabPageChats.TabIndex = 0;
+            this.tabPageChats.Text = "Сообщение с клиентами";
+            this.tabPageChats.UseVisualStyleBackColor = true;
+            // 
+            // tabPageAllClients
+            // 
+            this.tabPageAllClients.Controls.Add(this.treeViewClientsByCountry);
+            this.tabPageAllClients.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAllClients.Name = "tabPageAllClients";
+            this.tabPageAllClients.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAllClients.Size = new System.Drawing.Size(405, 373);
+            this.tabPageAllClients.TabIndex = 1;
+            this.tabPageAllClients.Text = "Список Клиентов";
+            this.tabPageAllClients.UseVisualStyleBackColor = true;
+            // 
+            // treeViewClientsByCountry
+            // 
+            this.treeViewClientsByCountry.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeViewClientsByCountry.Location = new System.Drawing.Point(6, 6);
+            this.treeViewClientsByCountry.Name = "treeViewClientsByCountry";
+            this.treeViewClientsByCountry.Size = new System.Drawing.Size(393, 361);
+            this.treeViewClientsByCountry.TabIndex = 0;
+            // 
             // groupBoxCurrentMessage
             // 
             this.groupBoxCurrentMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxCurrentMessage.Location = new System.Drawing.Point(435, 5);
+            this.groupBoxCurrentMessage.Controls.Add(this.flowLayoutPanelActiveSupport);
+            this.groupBoxCurrentMessage.Location = new System.Drawing.Point(435, 119);
             this.groupBoxCurrentMessage.Name = "groupBoxCurrentMessage";
-            this.groupBoxCurrentMessage.Size = new System.Drawing.Size(330, 295);
+            this.groupBoxCurrentMessage.Size = new System.Drawing.Size(330, 181);
             this.groupBoxCurrentMessage.TabIndex = 1;
             this.groupBoxCurrentMessage.TabStop = false;
             this.groupBoxCurrentMessage.Text = "Активный чат";
@@ -418,6 +491,7 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.btnSendMsg);
             this.groupBox2.Controls.Add(this.txtComment);
             this.groupBox2.Location = new System.Drawing.Point(435, 305);
@@ -427,20 +501,31 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Сообщение с клиентами";
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(175, 98);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 25);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Закрыть поддержку";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // btnSendMsg
             // 
             this.btnSendMsg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSendMsg.Location = new System.Drawing.Point(5, 100);
+            this.btnSendMsg.Location = new System.Drawing.Point(5, 98);
             this.btnSendMsg.Name = "btnSendMsg";
-            this.btnSendMsg.Size = new System.Drawing.Size(320, 25);
+            this.btnSendMsg.Size = new System.Drawing.Size(150, 25);
             this.btnSendMsg.TabIndex = 1;
             this.btnSendMsg.Text = "Отправьте";
             this.btnSendMsg.UseVisualStyleBackColor = true;
             // 
             // txtComment
             // 
-            this.txtComment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtComment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtComment.Location = new System.Drawing.Point(5, 20);
             this.txtComment.Multiline = true;
@@ -489,6 +574,151 @@
             this.groupBoxCreateCampaign.TabIndex = 2;
             this.groupBoxCreateCampaign.TabStop = false;
             this.groupBoxCreateCampaign.Text = "Создать маркетинговую кампанию";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(8, 27);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 13);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Продукт";
+            // 
+            // comboBoxOfferProduct
+            // 
+            this.comboBoxOfferProduct.FormattingEnabled = true;
+            this.comboBoxOfferProduct.Location = new System.Drawing.Point(120, 19);
+            this.comboBoxOfferProduct.Name = "comboBoxOfferProduct";
+            this.comboBoxOfferProduct.Size = new System.Drawing.Size(358, 21);
+            this.comboBoxOfferProduct.TabIndex = 22;
+            // 
+            // numericUpDownOfferMax
+            // 
+            this.numericUpDownOfferMax.Location = new System.Drawing.Point(119, 356);
+            this.numericUpDownOfferMax.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDownOfferMax.Name = "numericUpDownOfferMax";
+            this.numericUpDownOfferMax.Size = new System.Drawing.Size(358, 20);
+            this.numericUpDownOfferMax.TabIndex = 21;
+            // 
+            // numericUpDownOfferMin
+            // 
+            this.numericUpDownOfferMin.Location = new System.Drawing.Point(120, 317);
+            this.numericUpDownOfferMin.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDownOfferMin.Name = "numericUpDownOfferMin";
+            this.numericUpDownOfferMin.Size = new System.Drawing.Size(358, 20);
+            this.numericUpDownOfferMin.TabIndex = 20;
+            // 
+            // dateTimePickerOfferEnddate
+            // 
+            this.dateTimePickerOfferEnddate.CustomFormat = "dd/mm/yyyy";
+            this.dateTimePickerOfferEnddate.Location = new System.Drawing.Point(120, 278);
+            this.dateTimePickerOfferEnddate.Name = "dateTimePickerOfferEnddate";
+            this.dateTimePickerOfferEnddate.Size = new System.Drawing.Size(358, 20);
+            this.dateTimePickerOfferEnddate.TabIndex = 19;
+            // 
+            // dateTimePickerOfferStartDate
+            // 
+            this.dateTimePickerOfferStartDate.CustomFormat = "dd/mm/yyyy";
+            this.dateTimePickerOfferStartDate.Location = new System.Drawing.Point(120, 239);
+            this.dateTimePickerOfferStartDate.Name = "dateTimePickerOfferStartDate";
+            this.dateTimePickerOfferStartDate.Size = new System.Drawing.Size(358, 20);
+            this.dateTimePickerOfferStartDate.TabIndex = 18;
+            // 
+            // numericUpDownOfferDiscount
+            // 
+            this.numericUpDownOfferDiscount.DecimalPlaces = 4;
+            this.numericUpDownOfferDiscount.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numericUpDownOfferDiscount.Location = new System.Drawing.Point(120, 140);
+            this.numericUpDownOfferDiscount.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownOfferDiscount.Name = "numericUpDownOfferDiscount";
+            this.numericUpDownOfferDiscount.Size = new System.Drawing.Size(358, 20);
+            this.numericUpDownOfferDiscount.TabIndex = 17;
+            // 
+            // comboBoxOfferType
+            // 
+            this.comboBoxOfferType.FormattingEnabled = true;
+            this.comboBoxOfferType.Location = new System.Drawing.Point(120, 99);
+            this.comboBoxOfferType.Name = "comboBoxOfferType";
+            this.comboBoxOfferType.Size = new System.Drawing.Size(358, 21);
+            this.comboBoxOfferType.TabIndex = 16;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(8, 363);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(99, 13);
+            this.label19.TabIndex = 14;
+            this.label19.Text = "Макс. Количество";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(8, 324);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(93, 13);
+            this.label18.TabIndex = 13;
+            this.label18.Text = "Мин. Количество";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(8, 285);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(89, 13);
+            this.label16.TabIndex = 12;
+            this.label16.Text = "Дата окончания";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(8, 246);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(71, 13);
+            this.label15.TabIndex = 11;
+            this.label15.Text = "Дата начала";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(8, 146);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Скидка";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 107);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(32, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Типа";
+            // 
+            // comboBoxOfferCategory
+            // 
+            this.comboBoxOfferCategory.FormattingEnabled = true;
+            this.comboBoxOfferCategory.Location = new System.Drawing.Point(120, 59);
+            this.comboBoxOfferCategory.Name = "comboBoxOfferCategory";
+            this.comboBoxOfferCategory.Size = new System.Drawing.Size(358, 21);
+            this.comboBoxOfferCategory.TabIndex = 7;
             // 
             // btnSaveCampaign
             // 
@@ -543,6 +773,30 @@
             this.groupBoxClientGroups.TabStop = false;
             this.groupBoxClientGroups.Text = "Специальные предложения";
             // 
+            // richTextBoxSpecialInfoDetails
+            // 
+            this.richTextBoxSpecialInfoDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBoxSpecialInfoDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxSpecialInfoDetails.Location = new System.Drawing.Point(6, 307);
+            this.richTextBoxSpecialInfoDetails.Name = "richTextBoxSpecialInfoDetails";
+            this.richTextBoxSpecialInfoDetails.Size = new System.Drawing.Size(250, 118);
+            this.richTextBoxSpecialInfoDetails.TabIndex = 1;
+            this.richTextBoxSpecialInfoDetails.Text = "";
+            // 
+            // listViewSpecialOffers
+            // 
+            this.listViewSpecialOffers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewSpecialOffers.Location = new System.Drawing.Point(6, 19);
+            this.listViewSpecialOffers.MultiSelect = false;
+            this.listViewSpecialOffers.Name = "listViewSpecialOffers";
+            this.listViewSpecialOffers.Size = new System.Drawing.Size(250, 283);
+            this.listViewSpecialOffers.TabIndex = 0;
+            this.listViewSpecialOffers.UseCompatibleStateImageBehavior = false;
+            this.listViewSpecialOffers.View = System.Windows.Forms.View.List;
+            // 
             // tabBusinessReporting
             // 
             this.tabBusinessReporting.Controls.Add(this.chartProductSales);
@@ -565,19 +819,19 @@
             this.chartProductSales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea6.AxisX.Interval = 1D;
-            chartArea6.Name = "ChartArea1";
-            this.chartProductSales.ChartAreas.Add(chartArea6);
-            legend6.Enabled = false;
-            legend6.Name = "Legend1";
-            this.chartProductSales.Legends.Add(legend6);
+            chartArea3.AxisX.Interval = 1D;
+            chartArea3.Name = "ChartArea1";
+            this.chartProductSales.ChartAreas.Add(chartArea3);
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            this.chartProductSales.Legends.Add(legend3);
             this.chartProductSales.Location = new System.Drawing.Point(6, 87);
             this.chartProductSales.Name = "chartProductSales";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chartProductSales.Series.Add(series6);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartProductSales.Series.Add(series3);
             this.chartProductSales.Size = new System.Drawing.Size(760, 349);
             this.chartProductSales.TabIndex = 9;
             // 
@@ -657,174 +911,23 @@
             this.tabAnalytics.TabIndex = 5;
             this.tabAnalytics.Text = "Аналитика";
             // 
-            // comboBoxOfferCategory
+            // flowLayoutPanelHelpLine
             // 
-            this.comboBoxOfferCategory.FormattingEnabled = true;
-            this.comboBoxOfferCategory.Location = new System.Drawing.Point(120, 59);
-            this.comboBoxOfferCategory.Name = "comboBoxOfferCategory";
-            this.comboBoxOfferCategory.Size = new System.Drawing.Size(358, 21);
-            this.comboBoxOfferCategory.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 107);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Типа";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 146);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 13);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Скидка";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(8, 246);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(71, 13);
-            this.label15.TabIndex = 11;
-            this.label15.Text = "Дата начала";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(8, 285);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(89, 13);
-            this.label16.TabIndex = 12;
-            this.label16.Text = "Дата окончания";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(8, 324);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(93, 13);
-            this.label18.TabIndex = 13;
-            this.label18.Text = "Мин. Количество";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(8, 363);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(99, 13);
-            this.label19.TabIndex = 14;
-            this.label19.Text = "Макс. Количество";
-            // 
-            // comboBoxOfferType
-            // 
-            this.comboBoxOfferType.FormattingEnabled = true;
-            this.comboBoxOfferType.Location = new System.Drawing.Point(120, 99);
-            this.comboBoxOfferType.Name = "comboBoxOfferType";
-            this.comboBoxOfferType.Size = new System.Drawing.Size(358, 21);
-            this.comboBoxOfferType.TabIndex = 16;
-            // 
-            // numericUpDownOfferDiscount
-            // 
-            this.numericUpDownOfferDiscount.DecimalPlaces = 4;
-            this.numericUpDownOfferDiscount.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.numericUpDownOfferDiscount.Location = new System.Drawing.Point(120, 140);
-            this.numericUpDownOfferDiscount.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownOfferDiscount.Name = "numericUpDownOfferDiscount";
-            this.numericUpDownOfferDiscount.Size = new System.Drawing.Size(358, 20);
-            this.numericUpDownOfferDiscount.TabIndex = 17;
-            // 
-            // dateTimePickerOfferStartDate
-            // 
-            this.dateTimePickerOfferStartDate.CustomFormat = "dd/mm/yyyy";
-            this.dateTimePickerOfferStartDate.Location = new System.Drawing.Point(120, 239);
-            this.dateTimePickerOfferStartDate.Name = "dateTimePickerOfferStartDate";
-            this.dateTimePickerOfferStartDate.Size = new System.Drawing.Size(358, 20);
-            this.dateTimePickerOfferStartDate.TabIndex = 18;
-            // 
-            // dateTimePickerOfferEnddate
-            // 
-            this.dateTimePickerOfferEnddate.CustomFormat = "dd/mm/yyyy";
-            this.dateTimePickerOfferEnddate.Location = new System.Drawing.Point(120, 278);
-            this.dateTimePickerOfferEnddate.Name = "dateTimePickerOfferEnddate";
-            this.dateTimePickerOfferEnddate.Size = new System.Drawing.Size(358, 20);
-            this.dateTimePickerOfferEnddate.TabIndex = 19;
-            // 
-            // numericUpDownOfferMin
-            // 
-            this.numericUpDownOfferMin.Location = new System.Drawing.Point(120, 317);
-            this.numericUpDownOfferMin.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numericUpDownOfferMin.Name = "numericUpDownOfferMin";
-            this.numericUpDownOfferMin.Size = new System.Drawing.Size(358, 20);
-            this.numericUpDownOfferMin.TabIndex = 20;
-            // 
-            // numericUpDownOfferMax
-            // 
-            this.numericUpDownOfferMax.Location = new System.Drawing.Point(119, 356);
-            this.numericUpDownOfferMax.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numericUpDownOfferMax.Name = "numericUpDownOfferMax";
-            this.numericUpDownOfferMax.Size = new System.Drawing.Size(358, 20);
-            this.numericUpDownOfferMax.TabIndex = 21;
-            // 
-            // comboBoxOfferProduct
-            // 
-            this.comboBoxOfferProduct.FormattingEnabled = true;
-            this.comboBoxOfferProduct.Location = new System.Drawing.Point(120, 19);
-            this.comboBoxOfferProduct.Name = "comboBoxOfferProduct";
-            this.comboBoxOfferProduct.Size = new System.Drawing.Size(358, 21);
-            this.comboBoxOfferProduct.TabIndex = 22;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 27);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 13);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "Продукт";
-            // 
-            // listViewSpecialOffers
-            // 
-            this.listViewSpecialOffers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.flowLayoutPanelHelpLine.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listViewSpecialOffers.Location = new System.Drawing.Point(6, 19);
-            this.listViewSpecialOffers.MultiSelect = false;
-            this.listViewSpecialOffers.Name = "listViewSpecialOffers";
-            this.listViewSpecialOffers.Size = new System.Drawing.Size(250, 283);
-            this.listViewSpecialOffers.TabIndex = 0;
-            this.listViewSpecialOffers.UseCompatibleStateImageBehavior = false;
-            this.listViewSpecialOffers.View = System.Windows.Forms.View.List;
+            this.flowLayoutPanelHelpLine.Location = new System.Drawing.Point(6, 6);
+            this.flowLayoutPanelHelpLine.Name = "flowLayoutPanelHelpLine";
+            this.flowLayoutPanelHelpLine.Size = new System.Drawing.Size(393, 361);
+            this.flowLayoutPanelHelpLine.TabIndex = 0;
             // 
-            // richTextBoxSpecialInfoDetails
+            // flowLayoutPanelActiveSupport
             // 
-            this.richTextBoxSpecialInfoDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBoxSpecialInfoDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBoxSpecialInfoDetails.Location = new System.Drawing.Point(6, 307);
-            this.richTextBoxSpecialInfoDetails.Name = "richTextBoxSpecialInfoDetails";
-            this.richTextBoxSpecialInfoDetails.Size = new System.Drawing.Size(250, 118);
-            this.richTextBoxSpecialInfoDetails.TabIndex = 1;
-            this.richTextBoxSpecialInfoDetails.Text = "";
+            this.flowLayoutPanelActiveSupport.AutoScroll = true;
+            this.flowLayoutPanelActiveSupport.Location = new System.Drawing.Point(6, 19);
+            this.flowLayoutPanelActiveSupport.Name = "flowLayoutPanelActiveSupport";
+            this.flowLayoutPanelActiveSupport.Size = new System.Drawing.Size(324, 156);
+            this.flowLayoutPanelActiveSupport.TabIndex = 0;
             // 
             // FrmMain
             // 
@@ -835,6 +938,7 @@
             this.MinimumSize = new System.Drawing.Size(600, 350);
             this.Name = "FrmMain";
             this.Text = "СРМ";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.tabsMain.ResumeLayout(false);
             this.tabSalesForce.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -846,18 +950,23 @@
             this.groupBoxAddWorker.ResumeLayout(false);
             this.groupBoxAddWorker.PerformLayout();
             this.tabCustomerService.ResumeLayout(false);
+            this.groupBoxClientSupport.ResumeLayout(false);
+            this.tabControlHelpDesk.ResumeLayout(false);
+            this.tabPageChats.ResumeLayout(false);
+            this.tabPageAllClients.ResumeLayout(false);
+            this.groupBoxCurrentMessage.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabMarketing.ResumeLayout(false);
             this.groupBoxCreateCampaign.ResumeLayout(false);
             this.groupBoxCreateCampaign.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOfferMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOfferMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOfferDiscount)).EndInit();
             this.groupBoxClientGroups.ResumeLayout(false);
             this.tabBusinessReporting.ResumeLayout(false);
             this.tabBusinessReporting.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartProductSales)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOfferDiscount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOfferMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownOfferMax)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -928,5 +1037,13 @@
         private System.Windows.Forms.ComboBox comboBoxOfferProduct;
         private System.Windows.Forms.ListView listViewSpecialOffers;
         private System.Windows.Forms.RichTextBox richTextBoxSpecialInfoDetails;
+        private System.Windows.Forms.TabControl tabControlHelpDesk;
+        private System.Windows.Forms.TabPage tabPageChats;
+        private System.Windows.Forms.TabPage tabPageAllClients;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TreeView treeViewClientsByCountry;
+        private System.Windows.Forms.RichTextBox richTextBoxCustomerProfile;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelHelpLine;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelActiveSupport;
     }
 }

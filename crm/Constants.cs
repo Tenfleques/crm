@@ -9,6 +9,7 @@ namespace crm {
     public static class Constants {
         public static String defaultTxtQueryText = "Опишите список клиентов, необходимых для этой группы. Менеджер базы данных запрограммирует список для вас.";
 
+        public static String searchCustromerBoxDefaultText = "найти клиента..."; 
         public static Dictionary<string, string> specialOfferCategories = new Dictionary<string, string>(){
             { "No discount", "Нет скидки" },
             { "Reseller", "Торговый посредник"},
