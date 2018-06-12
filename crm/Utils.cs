@@ -21,7 +21,7 @@ namespace crm {
             card += customer[5]; //Country
             return new KeyValuePair<String, String>(name, card );
         }
-        public RichTextBox supportCard(DataRow supportRow) {
+        public Label supportCard(DataRow supportRow) {
             /*
              ,[supportid] 7
                 ,[message] 8
@@ -30,23 +30,24 @@ namespace crm {
                 ,[replyto] 11
                 ,CONCAT(e.FirstName, ' ', e.LastName) support 12
              */
-            String card = "\n  ";
-            card += supportRow[9] + " \n  "; //date
-            if (supportRow[0].ToString().Length > 0)
-                card += supportRow[6] + "\n  ";
-            else if (supportRow[7].ToString().Length > 0) //reply by support
-                card += supportRow[12] + "\n  ";
-            card += supportRow[8].ToString() + "\n  ";
+            String card = Environment.NewLine + " ";
+            card += supportRow[Constants.customerRecordSuppotIndices["date"]] + Environment.NewLine + "  "; //date
+            if (Convert.ToInt32(supportRow[Constants.customerRecordSuppotIndices["clientwritten"]]) == 1)
+                card += supportRow[Constants.customerRecordSuppotIndices["name"]] + Environment.NewLine + " ";
+            else 
+                card += "[помошь]" + supportRow[Constants.customerRecordSuppotIndices["support"]] + Environment.NewLine + "  ";
+            card += supportRow[Constants.customerRecordSuppotIndices["message"]].ToString() + Environment.NewLine + "  ";
 
-            RichTextBox lab = new RichTextBox();
+            Label lab = new Label();
             lab.Text = card;
             lab.BorderStyle = BorderStyle.None;
             var margin = lab.Margin;
             margin.Top = 1;
             lab.Margin = margin;
-            lab.ReadOnly = true;
             lab.Cursor = Cursors.Arrow;
             lab.Tag = customerCard(supportRow).Value;
+            lab.AutoSize = true;
+            lab.Anchor = (AnchorStyles.Bottom & AnchorStyles.Right);
             return lab;
         }
     }

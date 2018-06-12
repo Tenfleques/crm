@@ -111,28 +111,54 @@ namespace crm {
         public DataTable getCustomerSupport(int businessID) {
             DataTable table = new DataTable();
             using (SqlConnection sqlConn = new SqlConnection(Properties.Settings.Default.AdventureWorks2016Data)) {
-                string sqlQuery = @"SELECT c.BusinessEntityID 
-	            ,c.PhoneNumber
-	            ,c.EmailAddress
-	            ,c.City
-	            ,c.StateProvinceName
-	            ,c.CountryRegionName 
-                ,CONCAT(c.FirstName, ' ', c.LastName) Name
-                ,[supportid]
-                ,[message]
-                ,[date]
-                ,[messageid]
-                ,[replyto]
-                ,CONCAT(e.FirstName, ' ', e.LastName) support
-            FROM [Sales].[CustomerHelp] ch
-            JOIN Sales.vIndividualCustomer c            
-            ON c.BusinessEntityID = ch.customerid
-            JOIN HumanResources.vEmployee e
-            ON e.BusinessEntityID = ch.supportid";
+                string sqlQuery = "";
+                if (businessID < 0) {
+                    sqlQuery = @"WITH ranked_messages AS (
+                              SELECT c.BusinessEntityID 
+	                                    ,c.PhoneNumber
+	                                    ,c.EmailAddress
+	                                    ,c.City
+	                                    ,c.StateProvinceName
+	                                    ,c.CountryRegionName 
+                                        ,CONCAT(c.FirstName, ' ', c.LastName) Name
+                                        ,ch.supportid
+                                        ,ch.message
+                                        ,ch.date
+                                        ,ch.messageid
+                                        ,ch.replyto
+                                        ,ch.clientwritten
+                                        ,CONCAT(e.FirstName, ' ', e.LastName) support, 
+			                            ROW_NUMBER() OVER (PARTITION BY c.BusinessEntityID ORDER BY ch.messageid DESC) AS rn  
+                                    FROM [Sales].[CustomerHelp] ch
+                                    JOIN Sales.vIndividualCustomer c            
+                                    ON c.BusinessEntityID = ch.customerid
+                                    JOIN HumanResources.vEmployee e
+                                    ON e.BusinessEntityID = ch.supportid 
+                                    WHERE ch.clientwritten = 1
+                            )
+                            SELECT * FROM ranked_messages WHERE rn = 1;";
 
-                if(businessID > 0)
-                    sqlQuery += " WHERE c.BusinessEntityID = " +businessID;
-                sqlQuery += " ORDER BY [date] DESC"; 
+                } else {
+                    sqlQuery = @"SELECT c.BusinessEntityID 
+	                    ,c.PhoneNumber
+	                    ,c.EmailAddress
+	                    ,c.City
+	                    ,c.StateProvinceName
+	                    ,c.CountryRegionName 
+                        ,CONCAT(c.FirstName, ' ', c.LastName) Name
+                        ,[supportid]
+                        ,[message]
+                        ,[date]
+                        ,[messageid]
+                        ,[replyto]
+                        ,[clientwritten]
+                        ,CONCAT(e.FirstName, ' ', e.LastName) support
+                    FROM [Sales].[CustomerHelp] ch
+                    JOIN Sales.vIndividualCustomer c            
+                    ON c.BusinessEntityID = ch.customerid
+                    JOIN HumanResources.vEmployee e
+                    ON e.BusinessEntityID = ch.supportid WHERE c.BusinessEntityID = " + businessID + " ORDER BY messageid"; 
+                } 
 
                 using (SqlCommand cmd = new SqlCommand(sqlQuery, sqlConn)) {
                     SqlDataAdapter ds = new SqlDataAdapter(cmd);
@@ -143,7 +169,47 @@ namespace crm {
         }
 
         //insertions
+        public String writeSupportComment(String msg, String businessId, String replyTo, String supportID) {
+            Dictionary<String, String> sqlParams = new Dictionary<String, String>(){    
+                {"customerid", businessId },
+                {"supportid",supportID},
+                {"message",msg },
+                {"date", DateTime.Now.ToString("yyyy-MM-dd") },
+                {"replyto", replyTo },
+                {"clientwritten", Convert.ToString(0) }
 
+            };
+
+            String message = "";
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.AdventureWorks2016Data)) {
+                using (SqlCommand command = new SqlCommand()) {
+                    command.Connection = connection;            // <== lacking
+                    command.CommandType = CommandType.Text;
+                    String placeholders = "";
+                    foreach (KeyValuePair<String, String> pair in sqlParams) {
+                        if (placeholders.Length > 0)
+                            placeholders += ",@" + pair.Key;
+                        else
+                            placeholders += "@" + pair.Key;
+                        command.Parameters.AddWithValue("@" + pair.Key, pair.Value);
+                    }
+                    command.CommandText = "INSERT INTO [Sales].[CustomerHelp] ([customerid], [supportid], [message], [date], [replyto],[clientwritten]) VALUES (" + placeholders + ")";
+                    try {
+                        connection.Open();
+                        int recordsAffected = command.ExecuteNonQuery();
+                        message = Constants.recordWrittenToDB(recordsAffected);
+                        Console.WriteLine(message);
+                    } catch (SqlException e) {
+                        Console.WriteLine(e.Message);
+                        Console.WriteLine(e.Errors);
+                        message = "Произошла ошибка, и запись не удалось сохранить";
+                    } finally {
+                        connection.Close();
+                    }
+                }
+            }
+            return message;
+        }
         public String insertSpecialOffer(String description, Double discount, String type, String category, String startdate, String enddate, int minqty, int maxqty) {
             Dictionary<String, String> sqlParams = new Dictionary<String,String>(){
                 {"discription",description },
@@ -172,7 +238,7 @@ namespace crm {
                     try {
                         connection.Open();
                         int recordsAffected = command.ExecuteNonQuery();
-                        message = "Зафиксированные записи: " + recordsAffected;
+                        message = Constants.recordWrittenToDB(recordsAffected);
                     } catch (SqlException e) {
                         Console.WriteLine(e.Message);
                         Console.WriteLine(e.Errors);

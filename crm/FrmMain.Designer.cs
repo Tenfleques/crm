@@ -23,9 +23,9 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabsMain = new System.Windows.Forms.TabControl();
             this.tabSalesForce = new System.Windows.Forms.TabPage();
             this.groupBoxWall = new System.Windows.Forms.GroupBox();
@@ -55,13 +55,15 @@
             this.groupBoxClientSupport = new System.Windows.Forms.GroupBox();
             this.tabControlHelpDesk = new System.Windows.Forms.TabControl();
             this.tabPageChats = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanelHelpLine = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPageAllClients = new System.Windows.Forms.TabPage();
             this.treeViewClientsByCountry = new System.Windows.Forms.TreeView();
             this.groupBoxCurrentMessage = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanelActiveSupport = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnSendMsg = new System.Windows.Forms.Button();
-            this.txtComment = new System.Windows.Forms.TextBox();
+            this.txtSupportClient = new System.Windows.Forms.TextBox();
             this.tabMarketing = new System.Windows.Forms.TabPage();
             this.groupBoxCreateCampaign = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -96,8 +98,6 @@
             this.labelNumberOfProducts = new System.Windows.Forms.Label();
             this.labelProductsOverview = new System.Windows.Forms.Label();
             this.tabAnalytics = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanelHelpLine = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanelActiveSupport = new System.Windows.Forms.FlowLayoutPanel();
             this.tabsMain.SuspendLayout();
             this.tabSalesForce.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -457,6 +457,18 @@
             this.tabPageChats.Text = "Сообщение с клиентами";
             this.tabPageChats.UseVisualStyleBackColor = true;
             // 
+            // flowLayoutPanelHelpLine
+            // 
+            this.flowLayoutPanelHelpLine.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelHelpLine.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanelHelpLine.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanelHelpLine.Location = new System.Drawing.Point(6, 6);
+            this.flowLayoutPanelHelpLine.Name = "flowLayoutPanelHelpLine";
+            this.flowLayoutPanelHelpLine.Size = new System.Drawing.Size(393, 361);
+            this.flowLayoutPanelHelpLine.TabIndex = 0;
+            // 
             // tabPageAllClients
             // 
             this.tabPageAllClients.Controls.Add(this.treeViewClientsByCountry);
@@ -488,12 +500,23 @@
             this.groupBoxCurrentMessage.TabStop = false;
             this.groupBoxCurrentMessage.Text = "Активный чат";
             // 
+            // flowLayoutPanelActiveSupport
+            // 
+            this.flowLayoutPanelActiveSupport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelActiveSupport.AutoScroll = true;
+            this.flowLayoutPanelActiveSupport.Location = new System.Drawing.Point(6, 19);
+            this.flowLayoutPanelActiveSupport.Name = "flowLayoutPanelActiveSupport";
+            this.flowLayoutPanelActiveSupport.Size = new System.Drawing.Size(320, 155);
+            this.flowLayoutPanelActiveSupport.TabIndex = 0;
+            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.btnSendMsg);
-            this.groupBox2.Controls.Add(this.txtComment);
+            this.groupBox2.Controls.Add(this.txtSupportClient);
             this.groupBox2.Location = new System.Drawing.Point(435, 305);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(330, 130);
@@ -522,16 +545,17 @@
             this.btnSendMsg.TabIndex = 1;
             this.btnSendMsg.Text = "Отправьте";
             this.btnSendMsg.UseVisualStyleBackColor = true;
+            this.btnSendMsg.Click += new System.EventHandler(this.btnSendMsg_Click);
             // 
-            // txtComment
+            // txtSupportClient
             // 
-            this.txtComment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtSupportClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtComment.Location = new System.Drawing.Point(5, 20);
-            this.txtComment.Multiline = true;
-            this.txtComment.Name = "txtComment";
-            this.txtComment.Size = new System.Drawing.Size(320, 75);
-            this.txtComment.TabIndex = 0;
+            this.txtSupportClient.Location = new System.Drawing.Point(5, 20);
+            this.txtSupportClient.Multiline = true;
+            this.txtSupportClient.Name = "txtSupportClient";
+            this.txtSupportClient.Size = new System.Drawing.Size(320, 75);
+            this.txtSupportClient.TabIndex = 0;
             // 
             // tabMarketing
             // 
@@ -819,19 +843,19 @@
             this.chartProductSales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea3.AxisX.Interval = 1D;
-            chartArea3.Name = "ChartArea1";
-            this.chartProductSales.ChartAreas.Add(chartArea3);
-            legend3.Enabled = false;
-            legend3.Name = "Legend1";
-            this.chartProductSales.Legends.Add(legend3);
+            chartArea2.AxisX.Interval = 1D;
+            chartArea2.Name = "ChartArea1";
+            this.chartProductSales.ChartAreas.Add(chartArea2);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.chartProductSales.Legends.Add(legend2);
             this.chartProductSales.Location = new System.Drawing.Point(6, 87);
             this.chartProductSales.Name = "chartProductSales";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chartProductSales.Series.Add(series3);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartProductSales.Series.Add(series2);
             this.chartProductSales.Size = new System.Drawing.Size(760, 349);
             this.chartProductSales.TabIndex = 9;
             // 
@@ -911,24 +935,6 @@
             this.tabAnalytics.TabIndex = 5;
             this.tabAnalytics.Text = "Аналитика";
             // 
-            // flowLayoutPanelHelpLine
-            // 
-            this.flowLayoutPanelHelpLine.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelHelpLine.Location = new System.Drawing.Point(6, 6);
-            this.flowLayoutPanelHelpLine.Name = "flowLayoutPanelHelpLine";
-            this.flowLayoutPanelHelpLine.Size = new System.Drawing.Size(393, 361);
-            this.flowLayoutPanelHelpLine.TabIndex = 0;
-            // 
-            // flowLayoutPanelActiveSupport
-            // 
-            this.flowLayoutPanelActiveSupport.AutoScroll = true;
-            this.flowLayoutPanelActiveSupport.Location = new System.Drawing.Point(6, 19);
-            this.flowLayoutPanelActiveSupport.Name = "flowLayoutPanelActiveSupport";
-            this.flowLayoutPanelActiveSupport.Size = new System.Drawing.Size(324, 156);
-            this.flowLayoutPanelActiveSupport.TabIndex = 0;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -995,7 +1001,7 @@
         private System.Windows.Forms.GroupBox groupBoxTl;
         private System.Windows.Forms.GroupBox groupBoxWall;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtComment;
+        private System.Windows.Forms.TextBox txtSupportClient;
         private System.Windows.Forms.GroupBox groupBoxClientSupport;
         private System.Windows.Forms.GroupBox groupBoxCurrentMessage;
         private System.Windows.Forms.Button btnSendMsg;

@@ -7,7 +7,26 @@ using System.Threading.Tasks;
 
 namespace crm {
     public static class Constants {
-        public static String defaultTxtQueryText = "Опишите список клиентов, необходимых для этой группы. Менеджер базы данных запрограммирует список для вас.";
+        public static int defaultSupportID = 275;
+        public static String recordWrittenToDB (int recordsAffected) {
+            return "Зафиксированные записи: " + recordsAffected;
+        }
+        public static Dictionary<String, int> customerRecordSuppotIndices = new Dictionary<string, int>() {
+            { "BusinessEntityID",0},
+            { "PhoneNumber",1 },
+            { "EmailAddress",2},
+            { "City",3 },
+            { "StateProvinceName", 4},
+            { "CountryRegionName", 5},
+            { "name" ,6},
+            {"supportid",7},
+            {"message",8},
+            {"date",9},
+            {"messageid",10},
+            {"replyto",11},
+            {"clientwritten",12 },
+            {"support",13 }
+        };
 
         public static String searchCustromerBoxDefaultText = "найти клиента..."; 
         public static Dictionary<string, string> specialOfferCategories = new Dictionary<string, string>(){

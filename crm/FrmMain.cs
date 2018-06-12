@@ -16,6 +16,7 @@ namespace crm {
         Utils utils = new Utils();
         DataTable specialOffers;
         DataTable customersByCountry;
+        int lastSupportMessage = -1;
         Dictionary<string, List<KeyValuePair<string, string>>> countriesToCustomers;
         public FrmMain() {
             
@@ -77,9 +78,11 @@ namespace crm {
             customerHelpCurrentView(card);
         }
         private void fromTLCustomerSupportView_Click(object sender, EventArgs e) {
-            RichTextBox initiator = sender as RichTextBox;
+            Label initiator = sender as Label;
             
             String[] card = initiator.Tag.ToString().Split('*');
+            customerHelpCurrentView(card);
+            customerHelpCurrentView(card);
             customerHelpCurrentView(card);
         }
         private void customerHelpCurrentView(String[] card) {
@@ -89,6 +92,19 @@ namespace crm {
                 Console.WriteLine(businessID);
                 DataTable supportStream = queries.getCustomerSupport(businessID);
                 populateSupportStream(supportStream);
+            }
+        }
+        private void btnSendMsg_Click(object sender, EventArgs e) {
+            String[] tagInfo = this.flowLayoutPanelActiveSupport.Controls[lastSupportMessage].Tag.ToString().Split('*');
+            if(tagInfo.Length == 2) {
+                String businessId = tagInfo[0];
+                String replyTo = tagInfo[1];
+                if(this.txtSupportClient.Text.Length > 0) {                    
+                    String success = queries.writeSupportComment(this.txtSupportClient.Text, businessId, replyTo, Constants.defaultSupportID.ToString());
+
+                    if(success.Contains(Constants.recordWrittenToDB(1).Substring(0,6)))
+                        this.txtSupportClient.Clear();
+                }
             }
         }
         //end of events 
@@ -128,7 +144,7 @@ namespace crm {
         private void listCustomerSupportTimeline() {
             DataTable supportStream = queries.getCustomerSupport(-1); //get all support, last message
             foreach(DataRow dr in supportStream.Rows) {
-                RichTextBox txtBox = utils.supportCard(dr);
+                Label txtBox = utils.supportCard(dr);
                 txtBox.BackColor = Color.White;
                 txtBox.Width = this.tabPageChats.Width;
                 txtBox.Click += new System.EventHandler(fromTLCustomerSupportView_Click);
@@ -136,12 +152,24 @@ namespace crm {
             }
         }
 
-        private void populateSupportStream(DataTable support) {            
+        private void populateSupportStream(DataTable support) {
+            this.flowLayoutPanelActiveSupport.Controls.Clear();
+            lastSupportMessage = -1;
             foreach (DataRow supportRow in support.Rows) {
-                RichTextBox txtBox = utils.supportCard(supportRow);
-                txtBox.Width = this.groupBoxCurrentMessage.Width;
+                Label txtBox = utils.supportCard(supportRow);                
+                txtBox.MaximumSize = new Size(320, 0);
+                txtBox.Tag = supportRow[Constants.customerRecordSuppotIndices["BusinessEntityID"]] 
+                    + "*" 
+                    + supportRow[Constants.customerRecordSuppotIndices["messageid"]];
+
+                
+                //customer id and reply to
+
                 this.flowLayoutPanelActiveSupport.Controls.Add(txtBox);
+                this.flowLayoutPanelActiveSupport.AutoScrollPosition = new Point(txtBox.Left, txtBox.Top);
+                lastSupportMessage++;
             }
+            this.flowLayoutPanelActiveSupport.HorizontalScroll.Enabled = false;
         }
         //end of customer support page
 
@@ -253,7 +281,7 @@ namespace crm {
 
         private void FrmMain_Load(object sender, EventArgs e) {
 
-        }
+        }    
 
         //end of marketing page
     }
