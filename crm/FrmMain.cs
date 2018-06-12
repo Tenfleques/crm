@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,7 @@ namespace crm {
         DataTable customersByCountry;
         int lastSupportMessage = -1;
         Dictionary<string, List<KeyValuePair<string, string>>> countriesToCustomers;
+
         public FrmMain() {
             
             InitializeComponent();
@@ -50,6 +52,7 @@ namespace crm {
             }
             listCustomersByCountry();
             listCustomerSupportTimeline();
+            
         }
         //settings
         private void listViewSettings() {
@@ -60,31 +63,35 @@ namespace crm {
             this.listViewSpecialOffers.Columns.Add(header);
         }
         //end settings
-
-        //events
-        private void btnPost_Click(object sender, EventArgs e) {
-           
+        private void initTabHumanResources() {            
+            populateTaskListBox();
+            refreshEmployeeTasks();
+            String emp = this.comboBoxSalesPersons.Text;
+            this.labelTellWhoseTasks.Text = Constants.viewWhoseTasks(emp);
+            this.labelActiveSalesManTip.Text = Constants.assignTasksTip(emp);
         }
-        private void tabsMain_SelectedIndexChanged(Object sender, EventArgs e) {
-            //MessageBox.Show(e.ToString());
-            //Console.WriteLine();            
-            switch (this.tabsMain.SelectedTab.Name) {
-                case "tabBusinessReporting":                   
-                    break;
+        private void refreshEmployeeTasks() {
+            this.flowLayoutPanelEmployeeTasks.Controls.Clear();
+            DataTable salesPersonTasks;
+            Dictionary<int, List<Label>> empTask = new Dictionary<int, List<Label>>();
+            salesPersonTasks = queries.getEmployeeTasks();
+            foreach (DataRow empTaskRow in salesPersonTasks.Rows) {
+                int empNamekey = Convert.ToInt32(empTaskRow[1]);
+                if (!empTask.ContainsKey(empNamekey))
+                    empTask.Add(empNamekey, new List<Label>());
+                Label taskBox = utils.taskCard(empTaskRow);
+                empTask[empNamekey].Add(taskBox);
+            }
+            int currEmployee = Convert.ToInt32(this.comboBoxSalesPersons.SelectedValue);
+            if (empTask.ContainsKey(currEmployee)) {
+                foreach (Label taskBox in empTask[currEmployee]) {
+                    taskBox.Width = this.flowLayoutPanelEmployeeTasks.Width;
+                    Console.WriteLine(taskBox.Width +" : "+ this.flowLayoutPanelEmployeeTasks.Width);
+                    this.flowLayoutPanelEmployeeTasks.Controls.Add(taskBox);
+                }
             }
         }
-        private void treeViewNode_Click(object sender, TreeNodeMouseClickEventArgs e) {
-            String[] card = e.Node.Tag.ToString().Split('*');
-            customerHelpCurrentView(card);
-        }
-        private void fromTLCustomerSupportView_Click(object sender, EventArgs e) {
-            Label initiator = sender as Label;
-            
-            String[] card = initiator.Tag.ToString().Split('*');
-            customerHelpCurrentView(card);
-            customerHelpCurrentView(card);
-            customerHelpCurrentView(card);
-        }
+        //events
         private void customerHelpCurrentView(String[] card) {
             if (card.Length == 2) {
                 int businessID = Convert.ToInt32(card[0]);
@@ -94,17 +101,17 @@ namespace crm {
                 populateSupportStream(supportStream);
             }
         }
-        private void btnSendMsg_Click(object sender, EventArgs e) {
+        
+        private void buttonCloseSupportTicket_Click(object sender, EventArgs e) {
+            if (lastSupportMessage < 0)
+                return;
             String[] tagInfo = this.flowLayoutPanelActiveSupport.Controls[lastSupportMessage].Tag.ToString().Split('*');
-            if(tagInfo.Length == 2) {
+            if (tagInfo.Length == 2) {
                 String businessId = tagInfo[0];
                 String replyTo = tagInfo[1];
-                if(this.txtSupportClient.Text.Length > 0) {                    
-                    String success = queries.writeSupportComment(this.txtSupportClient.Text, businessId, replyTo, Constants.defaultSupportID.ToString());
-
-                    if(success.Contains(Constants.recordWrittenToDB(1).Substring(0,6)))
-                        this.txtSupportClient.Clear();
-                }
+                String success = queries.writeSupportComment(Constants.closedTicket, businessId, replyTo, Constants.defaultSupportID.ToString());
+                DataTable support = queries.getCustomerSupport(Convert.ToInt32(businessId));
+                populateSupportStream(support);
             }
         }
         //end of events 
@@ -138,8 +145,7 @@ namespace crm {
                     this.treeViewClientsByCountry.Nodes[card.Key].Nodes.Add(customer.Key, customer.Key);
                     this.treeViewClientsByCountry.Nodes[card.Key].Nodes[customer.Key].Tag = customer.Value;
                 }                
-            }
-            this.treeViewClientsByCountry.NodeMouseClick += new TreeNodeMouseClickEventHandler(treeViewNode_Click);
+            }            
         } 
         private void listCustomerSupportTimeline() {
             DataTable supportStream = queries.getCustomerSupport(-1); //get all support, last message
@@ -169,14 +175,33 @@ namespace crm {
                 this.flowLayoutPanelActiveSupport.AutoScrollPosition = new Point(txtBox.Left, txtBox.Top);
                 lastSupportMessage++;
             }
-            this.flowLayoutPanelActiveSupport.HorizontalScroll.Enabled = false;
+            
         }
         //end of customer support page
+        //employeee Tasks tab
+        private void populateTaskListBox() {
+            DataTable table = queries.getAllTasks();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Task", typeof(string));
+            dt.Columns.Add("TaskDescription", typeof(string));
+            dt.Columns.Add("TaskID", typeof(int));
+            foreach (DataRow dr in table.Rows) {
+                DataRow row = dt.NewRow();
+                row["TaskID"] = dr[0];
+                row["Task"] = dr[1];
+                row["TaskDescription"] = dr[2];
+                dt.Rows.Add(row);
+            }
 
+            this.listBoxTasks.DataSource = dt;
+            this.listBoxTasks.DisplayMember = "Task";
+            this.listBoxTasks.ValueMember = "TaskID";
+        }
+
+        //end of employee tasks tab
         //special offers page [Marketing]
         private void populateSalesPersons() {
             DataTable table = queries.getSalesPersons();
-
             DataTable dt = new DataTable();
             dt.Columns.Add("SalesPerson", typeof(string));
             dt.Columns.Add("BusinessID", typeof(int));
@@ -239,6 +264,7 @@ namespace crm {
             this.comboBoxOfferProduct.DisplayMember = "ProductName";
             this.comboBoxOfferProduct.ValueMember = "ProductID";
         }
+        
         private void populateSpecialOffers() {
             this.listViewSpecialOffers.Items.Clear();
             foreach (DataRow dr in specialOffers.Rows) {
@@ -254,14 +280,25 @@ namespace crm {
                     dr[8].ToString() + "\n";   
                 this.listViewSpecialOffers.Items.Add(lsV);
             }            
-            this.listViewSpecialOffers.Click += new System.EventHandler(listViewSpecialOffers_ItemActivate);
+            
         }
         
+        
+
+        //end of marketing page
+        //saving special offer
+        
+
+        private void FrmMain_Load(object sender, EventArgs e) {
+            this.listBoxTasks.SelectionMode = SelectionMode.MultiExtended;
+            this.listViewSpecialOffers.Click += new System.EventHandler(listViewSpecialOffers_ItemActivate);
+            this.treeViewClientsByCountry.NodeMouseClick += new TreeNodeMouseClickEventHandler(treeViewNode_Click);
+            this.flowLayoutPanelActiveSupport.HorizontalScroll.Enabled = false;
+            initTabHumanResources();
+        }
         private void listViewSpecialOffers_ItemActivate(object sender, EventArgs e) {
             this.richTextBoxSpecialInfoDetails.Text = this.listViewSpecialOffers.SelectedItems[0].Tag.ToString();
         }
-
-        //saving special offer
         private void btnSaveCampaign_Click(object sender, EventArgs e) {
             if (this.txtOfferDescription.Text == "") {
                 //error
@@ -278,11 +315,95 @@ namespace crm {
             specialOffers = queries.getSpecialOffers("");
             populateSpecialOffers();
         }
+        private void comboBoxSalesPersons_SelectedIndexChanged(object sender, EventArgs e) {
+            String emp = this.comboBoxSalesPersons.Text;
+            this.labelTellWhoseTasks.Text = Constants.viewWhoseTasks(emp);
+            this.labelActiveSalesManTip.Text = Constants.assignTasksTip(emp);
+            refreshEmployeeTasks();
+        }
+        
+        private void btnSaveNewTask_Click(object sender, EventArgs e) {
+            this.labelErrorMissingTaskInfo.Text = "";
+            if (txtTaskTitle.Text.Length < 1
+                || textBoxTaskDescription.Text.Length < 1) {
+                this.labelErrorMissingTaskInfo.Text = Constants.errorMissingTaskInfo;
+                return;
+            }
+            String msg = queries.insertNewTask(textBoxTaskDescription.Text,
+                txtTaskTitle.Text,
+                dateTimePickerTasksStartDate.Value.ToString("yyyy-MM-dd"),
+                dateTimePickerTaskEndDate.Value.ToString("yyyy-MM-dd"));
+            Console.WriteLine(msg);
+            populateTaskListBox();           
 
-        private void FrmMain_Load(object sender, EventArgs e) {
+        }
 
-        }    
+        private void btnSaveAssignments_Click(object sender, EventArgs e) {
+            int empID = Convert.ToInt32(this.comboBoxSalesPersons.SelectedValue);
+            List<int> newTasks = new List<int>();
+            int selectedEmpKey = Convert.ToInt32(comboBoxSalesPersons.SelectedValue);
+            
+            foreach (DataRowView sl in this.listBoxTasks.SelectedItems) {
+                int taskid = Convert.ToInt32(sl.Row["TaskID"]);
+                newTasks.Add(taskid);
+            }
+            String success = queries.assignEmployeeNewTask(newTasks, empID);
+            if (success.Contains(Constants.recordWrittenToDB(1).Substring(0, 6))) {
+                refreshEmployeeTasks();
+            }
+        }
+        private void tabsMain_SelectedIndexChanged(Object sender, EventArgs e) {
+            switch (this.tabsMain.SelectedTab.Name) {
+                case "tabBusinessReporting":
+                    break;
+                case "tabHumanResource":
+                    initTabHumanResources();
+                    break;
+            }
+        }
+        private void treeViewNode_Click(object sender, TreeNodeMouseClickEventArgs e) {
+            String[] card = e.Node.Tag.ToString().Split('*');
+            customerHelpCurrentView(card);
+        }
+        private void fromTLCustomerSupportView_Click(object sender, EventArgs e) {
+            Label initiator = sender as Label;
 
-        //end of marketing page
+            String[] card = initiator.Tag.ToString().Split('*');
+            customerHelpCurrentView(card);
+            customerHelpCurrentView(card);
+            customerHelpCurrentView(card);
+        }
+        private void btnSendMsg_Click(object sender, EventArgs e) {
+            if (lastSupportMessage < 0)
+                return;
+            String[] tagInfo = this.flowLayoutPanelActiveSupport.Controls[lastSupportMessage].Tag.ToString().Split('*');
+            if (tagInfo.Length == 2) {
+                String businessId = tagInfo[0];
+                String replyTo = tagInfo[1];
+                if (this.txtSupportClient.Text.Length > 0) {
+                    String success = queries.writeSupportComment(this.txtSupportClient.Text, businessId, replyTo, Constants.defaultSupportID.ToString());
+
+                    if (success.Contains(Constants.recordWrittenToDB(1).Substring(0, 6))) {
+                        this.txtSupportClient.Clear();
+                        DataTable support = queries.getCustomerSupport(Convert.ToInt32(businessId));
+                        populateSupportStream(support);
+                    }
+                }
+            }
+        }
+
+        private void buttonPrintReport_Click(object sender, EventArgs e) {
+            System.Drawing.Printing.PrintDocument pd = new System.Drawing.Printing.PrintDocument();
+            pd.PrintPage += new PrintPageEventHandler(pd_PrintPage);
+            pd.Print();
+        }
+        private void pd_PrintPage(object sender, PrintPageEventArgs ev) {
+            // Create and initialize print font 
+            System.Drawing.Font printFont = new System.Drawing.Font("Arial", 10);
+            Rectangle myRec = new System.Drawing.Rectangle(10, 30, 800, 600);
+            ev.Graphics.DrawString("Лучшие продавцы", printFont, Brushes.Black, 10, 10);
+            this.chartProductSales.Printing.PrintPaint(ev.Graphics, myRec);
+           
+        }
     }
 }

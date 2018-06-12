@@ -21,15 +21,31 @@ namespace crm {
             card += customer[5]; //Country
             return new KeyValuePair<String, String>(name, card );
         }
-        public Label supportCard(DataRow supportRow) {
-            /*
-             ,[supportid] 7
-                ,[message] 8
-                ,[date] 9
-                ,[messageid] 10
-                ,[replyto] 11
-                ,CONCAT(e.FirstName, ' ', e.LastName) support 12
+        public Label taskCard(DataRow taskRow) {
+            String card = Environment.NewLine + " ";
+            /* taskName [3]
+             * desc [4]
+             * stDate [5]
+             * enDate [6]
+             * progress [7]
              */
+            card += taskRow[3] + Environment.NewLine + " ";
+            card += taskRow[4] + Environment.NewLine + " ";
+            card += taskRow[5] + Environment.NewLine + " ";
+            card += taskRow[6] + Environment.NewLine + " ";
+            card += Convert.ToDouble(taskRow[7])*100 + "% сделана" +  Environment.NewLine + " ";
+            Label lab = new Label();
+            lab.Text = card;
+            lab.BorderStyle = BorderStyle.None;
+            var margin = lab.Margin;
+            margin.Top = 1;
+            lab.Margin = margin;
+            lab.Cursor = Cursors.Arrow;
+            lab.AutoSize = true;
+            lab.Anchor = (AnchorStyles.Bottom & AnchorStyles.Right);
+            return lab;
+        }
+        public Label supportCard(DataRow supportRow) {
             String card = Environment.NewLine + " ";
             card += supportRow[Constants.customerRecordSuppotIndices["date"]] + Environment.NewLine + "  "; //date
             if (Convert.ToInt32(supportRow[Constants.customerRecordSuppotIndices["clientwritten"]]) == 1)

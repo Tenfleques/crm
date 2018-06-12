@@ -167,6 +167,34 @@ namespace crm {
             }
             return table;
         }
+        public DataTable getEmployeeTasks() {
+            DataTable table = new DataTable();
+            using (SqlConnection sqlConn = new SqlConnection(Properties.Settings.Default.AdventureWorks2016Data)) {
+                string sqlQuery = @"SELECT * FROM vSalesPersonsTasks";
+                using (SqlCommand cmd = new SqlCommand(sqlQuery, sqlConn)) {
+                    SqlDataAdapter ds = new SqlDataAdapter(cmd);
+                    ds.Fill(table);
+                }
+            }
+            return table;
+        }
+        public DataTable getAllTasks () {
+            DataTable table = new DataTable();
+            using (SqlConnection sqlConn = new SqlConnection(Properties.Settings.Default.AdventureWorks2016Data)) {
+                string sqlQuery = @"SELECT TOP (1000) [TaskID]
+                      ,[TaskName]
+                      ,[TaskDescription]
+                      ,[TaskStartDate]
+                      ,[TaskEndDate]
+                  FROM [HumanResources].[Tasks]";
+                using (SqlCommand cmd = new SqlCommand(sqlQuery, sqlConn)) {
+                    SqlDataAdapter ds = new SqlDataAdapter(cmd);
+                    ds.Fill(table);
+                }
+            }
+            return table;
+        }
+
 
         //insertions
         public String writeSupportComment(String msg, String businessId, String replyTo, String supportID) {
@@ -247,6 +275,72 @@ namespace crm {
                         connection.Close();
                     }
                 }                
+            }
+            return message;
+        }
+
+        public String insertNewTask(String description, String title, String startdate, String enddate) {
+            Dictionary<String, String> sqlParams = new Dictionary<String, String>(){
+                {"TaskDescription",description },
+                {"TaskName", title },
+                {"TaskStartDate",startdate },
+                {"TaskEndDate",enddate }
+            };
+            String message = "";
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.AdventureWorks2016Data)) {
+                using (SqlCommand command = new SqlCommand()) {
+                    command.Connection = connection;            
+                    command.CommandType = CommandType.Text;
+                    String placeholders = "";
+                    foreach (KeyValuePair<String, String> pair in sqlParams) {
+                        if (placeholders.Length > 0)
+                            placeholders += ",@" + pair.Key;
+                        else
+                            placeholders += "@" + pair.Key;
+                        command.Parameters.AddWithValue("@" + pair.Key, pair.Value);
+                    }
+                    command.CommandText = "INSERT INTO HumanResources.Tasks ([TaskDescription], [TaskName], [TaskStartDate], [TaskEndDate])VALUES (" + placeholders + ")";
+                    try {
+                        connection.Open();
+                        int recordsAffected = command.ExecuteNonQuery();
+                        message = Constants.recordWrittenToDB(recordsAffected);
+                    } catch (SqlException e) {
+                        Console.WriteLine(e.Message);
+                        Console.WriteLine(e.Errors);
+                        message = "Произошла ошибка, и запись не удалось сохранить";
+                    } finally {
+                        connection.Close();
+                    }
+                }
+            }
+            return message;
+        }
+        public String assignEmployeeNewTask(List<int> taskIDS, int empid) {
+            String message = "";
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.AdventureWorks2016Data)) {
+                using (SqlCommand command = new SqlCommand()) {
+                    command.Connection = connection;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "INSERT INTO HumanResources.EmployeeTasks ([TaskID], [EmployeeID], [Progress]) VALUES (@TaskID, @EmployeeID, @Progress)";                  
+
+                    try {
+                        connection.Open();
+                        foreach (int taskid in taskIDS) {
+                            command.Parameters.Clear();
+                            command.Parameters.AddWithValue("@TaskID", taskid);
+                            command.Parameters.AddWithValue("@EmployeeID", empid);
+                            command.Parameters.AddWithValue("@Progress", 0);
+                            int recordsAffected = command.ExecuteNonQuery();
+                            message += Constants.recordWrittenToDB(recordsAffected) + Environment.NewLine;
+                        }                        
+                    } catch (SqlException e) {
+                        Console.WriteLine(e.Message);
+                        Console.WriteLine(e.Errors);
+                        message = "Произошла ошибка, и запись не удалось сохранить";
+                    } finally {
+                        connection.Close();
+                    }
+                }
             }
             return message;
         }
