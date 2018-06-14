@@ -20,25 +20,27 @@ namespace crm {
             FrmSplash splashForm = new FrmSplash();
             FrmDBsetup dbsetupForm = new FrmDBsetup();
 
+            //Application.Run(mainForm);
             Application.Run(splashForm);
 
             if(splashForm.isAppLoaded())
-                Application.Run(loginForm);
+                Application.Run(mainForm);
+            //Application.Run(loginForm);
 
-            if (loginForm.isAuthenticated()) {
+            /*if (loginForm.isAuthenticated()) {
                 Application.Run(mainForm);
             }
             if (loginForm.goToRegister()) {
-                Application.Run(regForm);
+				Application.Run(dbsetupForm);
                 if (regForm.goToLogin()) {
                     Application.Restart();
                 }
-                if (regForm.isAuthenticated()) {
-                    Application.Run(dbsetupForm);
-                    if(dbsetupForm.isSet())
+				if (dbsetupForm.isSet()) {
+					Application.Run(regForm);
+					if(regForm.isAuthenticated())
                         Application.Run(mainForm);
                 }
-            }
+            }*/
         }
     }
 }

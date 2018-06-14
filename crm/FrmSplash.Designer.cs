@@ -31,9 +31,9 @@
             // 
             this.progressBarLoading.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.progressBarLoading.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.progressBarLoading.Location = new System.Drawing.Point(0, 300);
+            this.progressBarLoading.Location = new System.Drawing.Point(0, 280);
             this.progressBarLoading.Name = "progressBarLoading";
-            this.progressBarLoading.Size = new System.Drawing.Size(580, 10);
+            this.progressBarLoading.Size = new System.Drawing.Size(570, 10);
             this.progressBarLoading.TabIndex = 0;
             // 
             // FrmSplash
@@ -44,7 +44,7 @@
             this.ClientSize = new System.Drawing.Size(570, 310);
             this.Controls.Add(this.progressBarLoading);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(570, 310);
             this.MinimumSize = new System.Drawing.Size(570, 310);
             this.Name = "FrmSplash";

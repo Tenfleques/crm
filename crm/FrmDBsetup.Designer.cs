@@ -114,6 +114,7 @@
             this.lblErrorMessage.AutoSize = true;
             this.lblErrorMessage.Location = new System.Drawing.Point(140, 60);
             this.lblErrorMessage.Name = "lblErrorMessage";
+			this.lblErrorMessage.Text = "";
             this.lblErrorMessage.Size = new System.Drawing.Size(0, 13);
             this.lblErrorMessage.TabIndex = 8;
             // 
@@ -135,6 +136,7 @@
             this.lblCompany.AutoSize = true;
             this.lblCompany.Location = new System.Drawing.Point(127, 28);
             this.lblCompany.Name = "lblCompany";
+			this.lblCompany.Text = "";
             this.lblCompany.Size = new System.Drawing.Size(0, 13);
             this.lblCompany.TabIndex = 3;
             // 
@@ -143,6 +145,7 @@
             this.lblAdmin.AutoSize = true;
             this.lblAdmin.Location = new System.Drawing.Point(127, 68);
             this.lblAdmin.Name = "lblAdmin";
+			this.lblAdmin.Text = "";
             this.lblAdmin.Size = new System.Drawing.Size(0, 13);
             this.lblAdmin.TabIndex = 2;
             // 
