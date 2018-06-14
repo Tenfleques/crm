@@ -26,8 +26,8 @@ namespace crm.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.1.3;Initial Catalog=AdventureWorks2016;Persist Security Info=" +
-            "True;User ID=SA;Password=vodRoBgo$sg572$26")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=AdventureWorks2016;Persist Security Info=Tr" +
+            "ue;User ID=SA;Password=vodRoBgo$sg572$26")]
         public string AdventureWorks2016Data {
             get {
                 return ((string)(this["AdventureWorks2016Data"]));
